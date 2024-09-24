@@ -1,0 +1,24 @@
+﻿  Ball.cpp
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(7,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(13,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(36,64): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(36,64): warning C4244:         with
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(36,64): warning C4244:         [
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(36,64): warning C4244:             T=unsigned int
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(36,64): warning C4244:         ]
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(36,40): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(36,40): warning C4244:         with
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(36,40): warning C4244:         [
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(36,40): warning C4244:             T=unsigned int
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(36,40): warning C4244:         ]
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(42,17): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(42,17): warning C4244:         with
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(42,17): warning C4244:         [
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(42,17): warning C4244:             T=unsigned int
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(42,17): warning C4244:         ]
+  main.cpp
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(16,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(19,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(19,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  PhysicsSimulator.vcxproj -> C:\Users\A0096607\Documents\Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe
