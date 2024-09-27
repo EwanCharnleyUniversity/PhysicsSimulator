@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\DrawLine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:DrawLine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\DrawLine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:DrawLine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Ball.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:Ball.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Ball.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:Ball.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Ball.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:Ball.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -30,17 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADsAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-24T11:10:37.751Z",
               "IsPinned": true,
@@ -48,52 +40,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DrawLine.h",
-              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\DrawLine.h",
-              "RelativeDocumentMoniker": "DrawLine.h",
-              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\DrawLine.h",
-              "RelativeToolTip": "DrawLine.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-24T12:12:14.238Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DrawLine.cpp",
-              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\DrawLine.cpp",
-              "RelativeDocumentMoniker": "DrawLine.cpp",
-              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\DrawLine.cpp",
-              "RelativeToolTip": "DrawLine.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-24T12:05:16.718Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Ball.h",
               "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Ball.h",
               "RelativeDocumentMoniker": "Ball.h",
               "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Ball.h",
               "RelativeToolTip": "Ball.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-24T10:55:39.15Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Ball.cpp",
               "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Ball.cpp",
               "RelativeDocumentMoniker": "Ball.cpp",
               "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Ball.cpp",
               "RelativeToolTip": "Ball.cpp",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAADIAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAFMAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-24T10:55:30.79Z",
               "EditorCaption": ""

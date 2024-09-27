@@ -1,28 +1,43 @@
 
 #include <iostream>
+#include <vector>
+#include <random>
 #include <SFML/Window.hpp>
 
 #include "Ball.h"
+#include "DebugTools.h"
 
 
-static int WIDTH = 784;
-static int HEIGHT = 441;
+static int RATIO = 92;
+static int WIDTH = RATIO * 16;
+static int HEIGHT = RATIO * 9;
+static float FPS = 60;
+
 
 int main(void)
 {
-	sf::RenderWindow window(sf::VideoMode(784,441), "Physics SFML Simulator");
+	sf::RenderWindow window(sf::VideoMode(WIDTH,HEIGHT), "Physics SFML Simulator");
+	sf::Clock deltaTime;
 
-	Ball firstBall(100, sf::Color(25,25,255,255), 25, 25);
-	Ball secondBall(100, sf::Color(25,255,0,255), WIDTH - 225, 25);
-
-	// DEBUG :: Center of screen
-	Ball centerMark(2, sf::Color(255,255,255,255), WIDTH / 2, HEIGHT / 2);
+	// Ball Vector
+	std::vector<Ball> ballVector;
+	float ballWidth = 250.0f;
+	for (int i = 0; i < 2; i++) {
+		sf::Color randomBallColour = sf::Color(rand() % 255, rand() % 255, rand() % 255, 255);
+		ballVector.push_back(Ball(ballWidth, randomBallColour, rand() % WIDTH, rand() % HEIGHT));
+	}
 
 
 	while (window.isOpen()) {
 
-		sf::Event event;
+		// Delta Time
+		uint32_t timeStep = deltaTime.getElapsedTime().asMilliseconds();
+		if (timeStep < 1000 / FPS) {
+			continue;
+		}
 
+		// Window Events
+		sf::Event event;
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed)
 				window.close();
@@ -30,15 +45,23 @@ int main(void)
 
 		window.clear(sf::Color(0,0,15,255));
 
-		// Simulate and draw everything.
-		firstBall.Simulation(window.getSize());
-		secondBall.Simulation(window.getSize());
+		// Vector draw and Simulation.
+		for (int _baseBall = 0; _baseBall < ballVector.size(); _baseBall++) {
+			ballVector[_baseBall].Simulation(window.getSize());
+			for (int _targetBall = 0; _targetBall < ballVector.size(); _targetBall++) {
 
-		firstBall.Draw(&window);
-		secondBall.Draw(&window);
-		centerMark.Draw(&window);
+				if (_targetBall == _baseBall) {
+					continue;
+				}
+
+				ballVector[_baseBall].CalculateCollision(&ballVector[_targetBall]);
+			}
+
+			ballVector[_baseBall].Draw(&window);
+		}
 
 		window.display();
+		deltaTime.restart();
 	}
 
 	return 0;
