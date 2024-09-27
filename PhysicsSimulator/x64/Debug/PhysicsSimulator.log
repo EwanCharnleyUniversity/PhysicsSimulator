@@ -1,2 +1,6 @@
 ﻿  Ball.cpp
+  main.cpp
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(27,81): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(27,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
   PhysicsSimulator.vcxproj -> C:\Users\A0096607\Documents\Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe

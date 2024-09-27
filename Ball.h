@@ -21,7 +21,8 @@ public:
 	void Simulation(sf::Vector2u windowSize);
 	void Draw(sf::RenderWindow* window);
 
-	void CalculateCollision(Ball* ball);
+	void DetermineCollision(Ball* ball);
+	void calculateCollision();
 
 private:
 	bool DEBUG = true;

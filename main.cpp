@@ -21,7 +21,7 @@ int main(void)
 
 	// Ball Vector
 	std::vector<Ball> ballVector;
-	float ballWidth = 250.0f;
+	float ballWidth = 100.0f;
 	for (int i = 0; i < 2; i++) {
 		sf::Color randomBallColour = sf::Color(rand() % 255, rand() % 255, rand() % 255, 255);
 		ballVector.push_back(Ball(ballWidth, randomBallColour, rand() % WIDTH, rand() % HEIGHT));
@@ -48,13 +48,15 @@ int main(void)
 		// Vector draw and Simulation.
 		for (int _baseBall = 0; _baseBall < ballVector.size(); _baseBall++) {
 			ballVector[_baseBall].Simulation(window.getSize());
+
 			for (int _targetBall = 0; _targetBall < ballVector.size(); _targetBall++) {
 
 				if (_targetBall == _baseBall) {
 					continue;
 				}
 
-				ballVector[_baseBall].CalculateCollision(&ballVector[_targetBall]);
+				std::cout << "Base ball: " << _baseBall << " to Target ball: " << _targetBall << std::endl;
+				ballVector[_baseBall].DetermineCollision(&ballVector[_targetBall]);
 			}
 
 			ballVector[_baseBall].Draw(&window);
