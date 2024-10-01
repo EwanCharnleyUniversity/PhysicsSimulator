@@ -11,6 +11,8 @@
 static int RATIO = 92;
 static int WIDTH = RATIO * 16;
 static int HEIGHT = RATIO * 9;
+
+static bool FPSBOOL = true;
 static float FPS = 60;
 
 
@@ -21,8 +23,8 @@ int main(void)
 
 	// Ball Vector
 	std::vector<Ball> ballVector;
-	float ballWidth = 100.0f;
-	for (int i = 0; i < 2; i++) {
+	float ballWidth = 10.0f;
+	for (int i = 0; i < 100; i++) {
 		sf::Color randomBallColour = sf::Color(rand() % 255, rand() % 255, rand() % 255, 255);
 		ballVector.push_back(Ball(ballWidth, randomBallColour, rand() % WIDTH, rand() % HEIGHT));
 	}
@@ -32,7 +34,7 @@ int main(void)
 
 		// Delta Time
 		uint32_t timeStep = deltaTime.getElapsedTime().asMilliseconds();
-		if (timeStep < 1000 / FPS) {
+		if (timeStep < 1000 / FPS && FPSBOOL == true) {
 			continue;
 		}
 
@@ -55,7 +57,7 @@ int main(void)
 					continue;
 				}
 
-				std::cout << "Base ball: " << _baseBall << " to Target ball: " << _targetBall << std::endl;
+				//std::cout << "Base ball: " << _baseBall << " to Target ball: " << _targetBall << std::endl;
 				ballVector[_baseBall].DetermineCollision(&ballVector[_targetBall]);
 			}
 

@@ -3,6 +3,11 @@
 #include <random>
 #include "Ball.h"
 
+template <typename T>
+T randomWeight(T weight) {
+	return rand() % weight - (weight / 2);
+}
+
 
 Ball::Ball(float _inputWidth, sf::Color _inputColor) {
 	ballShape = sf::CircleShape(_inputWidth);
@@ -15,14 +20,15 @@ Ball::Ball(float _inputWidth, sf::Color _inputColor, float _inputPositionX, floa
 	ballShape.setFillColor(_inputColor);
 	baseColor = _inputColor;
 
-	ballMovement.xPosition = _inputPositionX;
-	ballMovement.yPosition = _inputPositionY;
-	ballShape.setPosition(ballMovement.xPosition, ballMovement.yPosition);
+	ballMovement.position.x = _inputPositionX;
+	ballMovement.position.y = _inputPositionY;
+
+	ballShape.setPosition(ballMovement.position.x, ballMovement.position.y);
 	ballShape.setOrigin(_inputWidth, _inputWidth);
 	
 	// DEBUG: Sets random velocity between -5 and 5, gives more dynamic movement.
-	ballMovement.xVelocity += rand() % 10 - 5;
-	ballMovement.yVelocity += rand() % 10 - 5;
+	ballMovement.velocity.x = randomWeight(25);
+	ballMovement.velocity.y = randomWeight(25);
 }
 
 
@@ -36,34 +42,16 @@ void Ball::Draw(sf::RenderWindow* window) {
 
 	// Draws lines if debug is true.
 	sf::Vertex vertices[] = {
-		sf::Vertex(sf::Vector2f(ballMovement.xPosition, ballMovement.yPosition), sf::Color(255,255,255)),
-		sf::Vertex(sf::Vector2f(ballMovement.xPosition + ballMovement.xVelocity * 5.0f,
-			ballMovement.yPosition + ballMovement.yVelocity * 5.0f), sf::Color(0,0,0)),
+		sf::Vertex(ballMovement.position, sf::Color(255,255,255)),
+		sf::Vertex(ballMovement.position + ballMovement.velocity * sqrt(ballShape.getRadius()), sf::Color(0,0,0)),
 	};
 
 	window->draw(vertices, 2, sf::Lines);
 }
 
 
-void Ball::Simulation(sf::Vector2u windowSize) {
 
-	float middleWidth = (float)windowSize.x / 2;
-	float middleHeight = (float)windowSize.y / 2;
-
-	// Calculates vector x and y to center.
-	float widthWeight = ballMovement.xPosition - middleWidth;
-	float heightWeight = ballMovement.yPosition - middleHeight;
-
-	// Applies Gravitational Weight
-	ballMovement.xVelocity += widthWeight / -1000;
-	ballMovement.yVelocity += heightWeight / -1000;
-
-	ballMovement.yPosition += ballMovement.yVelocity;
-	ballMovement.xPosition += ballMovement.xVelocity;
-
-	ballShape.setPosition(ballMovement.xPosition, ballMovement.yPosition);
-}
-
+/// MATH FUNCTIONS ///
 
 template <typename T>
 T squaredProduct(T _input) {
@@ -71,46 +59,67 @@ T squaredProduct(T _input) {
 	return _input;
 }
 
+// we have two inputs representing the vector between our balls position
+// we know the vector, we do not know the angle.
+// the standard formula is a.b = |a||b|cos0
+// but we can rewrite it to cos0 = a.b / |a||b|
+
+float vectorMagnitude(sf::Vector2f _firstInput) {
+	return sqrt((squaredProduct(_firstInput.x)) + (squaredProduct(_firstInput.y)));
+}
+
+float dotProduct2D(sf::Vector2f _firstInput, sf::Vector2f _secondInput) {
+	return _firstInput.x * _secondInput.x + _firstInput.y * _secondInput.y;
+}
+
+float dotProduct2DAngle(sf::Vector2f _firstInput, sf::Vector2f _secondInput) {	
+	return acos(dotProduct2D(_firstInput,_secondInput) / (vectorMagnitude(_firstInput) * vectorMagnitude(_secondInput)));
+}
+
+
+
+/// SIMULATION CALCULATIONS ///
+
+void Ball::Simulation(sf::Vector2u windowSize) {
+
+	float middleWidth = (float)windowSize.x / 2;
+	float middleHeight = (float)windowSize.y / 2;
+
+	// Calculates vector x and y to center.
+	float widthWeight = ballMovement.position.x - middleWidth;
+	float heightWeight = ballMovement.position.y - middleHeight;
+
+	// Applies Gravitational Weight
+	ballMovement.velocity.x += widthWeight / -1000;
+	ballMovement.velocity.y += heightWeight / -1000;
+
+	ballMovement.position.y += ballMovement.velocity.y;
+	ballMovement.position.x += ballMovement.velocity.x;
+
+	// Probably could just calculate the collision in here.
+
+	ballShape.setPosition(ballMovement.position);
+}
 
 void Ball::calculateCollision() {
-	// Sets ball colour to Red to show it has collided.
-	std::cout << "Colour changed!" << std::endl;
-	ballShape.setFillColor(sf::Color(255, 0, 0));
+	ballMovement.velocity.x = randomWeight(25);
+	ballMovement.velocity.y = randomWeight(25);
 }
 
 
 void Ball::DetermineCollision(Ball* targetBall) {
+	// Dot product for angle requires the vector between the two ball points and our velocity vector of the main ball.
+	// We can then calculate the closest distance of the two and predict whether it will collide or not.
 
-	// Two Balls (Radius = 100)
-	// Ball 1 - x: 100	y: 200
-	// Ball 2 - x: 300	y: 200
+	float displacementValue = dotProduct2D(ballMovement.position, targetBall->ballMovement.position);
 
-	// Ball One xDisplacement = 100 - 200 = -100
-	// Ball One yDisplacement = 300 - 200 = 100
-
-	// Ball Two xDisplacement = 200 - 100 = 100
-	// Ball Two yDisplacement = 200 - 300 = -100
-
-	float xDisplacement = ballMovement.xPosition - targetBall->ballMovement.xPosition;
-	float yDisplacement = ballMovement.yPosition - targetBall->ballMovement.yPosition;
-
-
-	float distance = sqrtf(squaredProduct(abs(xDisplacement)) + squaredProduct(abs(yDisplacement)));
-
-	// The combination of the parent and target ball's radius
 	float ballDepth = ballShape.getRadius() + targetBall->ballShape.getRadius();
-
-	if (distance > ballDepth) {
-		ballShape.setFillColor(baseColor);
+	
+	//std::cout << displacementValue << std::endl;
+	if (displacementValue >= ballDepth) {
 		return;
 	}
 
 	calculateCollision();
-
-	// calculate collision.
-	// Elastic collisions, no loss of energy
-	// Coefficient of restitution is 1
-	// we need the center of mass velocity, both balls are considered the same mass, find the direct middle of the collision and apply the sum of both vectors there.
-	//
 	
 }

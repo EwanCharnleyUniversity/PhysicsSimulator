@@ -6,10 +6,8 @@
 
 
 struct WorldMovement {
-	float xPosition = 0;
-	float yPosition = 0;
-	float xVelocity = 0;
-	float yVelocity = 0;
+	sf::Vector2f position;
+	sf::Vector2f velocity;
 };
 
 
