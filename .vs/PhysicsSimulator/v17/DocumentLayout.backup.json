@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\DebugTools.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:DebugTools.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\DebugTools.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:DebugTools.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Ball.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:Ball.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -32,7 +40,7 @@
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAGsAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-24T11:10:37.751Z",
               "IsPinned": true,
@@ -40,13 +48,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Ball.h",
               "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Ball.h",
               "RelativeDocumentMoniker": "Ball.h",
               "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Ball.h",
               "RelativeToolTip": "Ball.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-24T10:55:39.15Z",
               "IsPinned": true,
@@ -54,16 +62,41 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DebugTools.h",
+              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\DebugTools.h",
+              "RelativeDocumentMoniker": "DebugTools.h",
+              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\DebugTools.h",
+              "RelativeToolTip": "DebugTools.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-01T15:33:37.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DebugTools.cpp",
+              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\DebugTools.cpp",
+              "RelativeDocumentMoniker": "DebugTools.cpp",
+              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\DebugTools.cpp",
+              "RelativeToolTip": "DebugTools.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-01T15:33:36.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Ball.cpp",
               "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Ball.cpp",
               "RelativeDocumentMoniker": "Ball.cpp",
               "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Ball.cpp",
               "RelativeToolTip": "Ball.cpp",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAAAHUAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAADkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-24T10:55:30.79Z",
-              "IsPinned": true,
               "EditorCaption": ""
             }
           ]

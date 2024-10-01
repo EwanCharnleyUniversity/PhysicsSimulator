@@ -3,19 +3,20 @@
 #include <random>
 #include "Ball.h"
 
-template <typename T>
-T randomWeight(T weight) {
-	return rand() % weight - (weight / 2);
+
+
+int randomWeight() {
+	return (rand() % 10 - (10 / 2));
 }
 
 
-Ball::Ball(float _inputWidth, sf::Color _inputColor) {
+Ball::Ball(int id, float _inputWidth, sf::Color _inputColor) : ID(id) {
 	ballShape = sf::CircleShape(_inputWidth);
 	ballShape.setOrigin(_inputWidth, _inputWidth);
 	ballShape.setFillColor(_inputColor);
 }
 
-Ball::Ball(float _inputWidth, sf::Color _inputColor, float _inputPositionX, float _inputPositionY) {
+Ball::Ball(int id, float _inputWidth, sf::Color _inputColor, float _inputPositionX, float _inputPositionY) : ID(id) {
 	ballShape = sf::CircleShape(_inputWidth);
 	ballShape.setFillColor(_inputColor);
 	baseColor = _inputColor;
@@ -27,10 +28,13 @@ Ball::Ball(float _inputWidth, sf::Color _inputColor, float _inputPositionX, floa
 	ballShape.setOrigin(_inputWidth, _inputWidth);
 	
 	// DEBUG: Sets random velocity between -5 and 5, gives more dynamic movement.
-	ballMovement.velocity.x = randomWeight(25);
-	ballMovement.velocity.y = randomWeight(25);
+	ballMovement.velocity.x = randomWeight();
+	ballMovement.velocity.y = randomWeight();
 }
 
+
+
+/// DRAW FUNCTION ///
 
 void Ball::Draw(sf::RenderWindow* window) {
 
@@ -50,7 +54,6 @@ void Ball::Draw(sf::RenderWindow* window) {
 }
 
 
-
 /// MATH FUNCTIONS ///
 
 template <typename T>
@@ -59,10 +62,14 @@ T squaredProduct(T _input) {
 	return _input;
 }
 
-// we have two inputs representing the vector between our balls position
-// we know the vector, we do not know the angle.
-// the standard formula is a.b = |a||b|cos0
-// but we can rewrite it to cos0 = a.b / |a||b|
+// REMEMBER: Vectors a lines between TWO POINTS, you need four values with a 2D vector, six values for a 3D vector, etc.
+// 
+// |x| is vector magnitude. Pythagorean lenght of side c.
+// x.y is a vector dot product.
+// the standard formula for a dot product is a.b = |a||b|cos0
+// 
+// In this case we have two vectors, the distance to target and our velocity.
+// d.v = |d||v|cos0
 
 float vectorMagnitude(sf::Vector2f _firstInput) {
 	return sqrt((squaredProduct(_firstInput.x)) + (squaredProduct(_firstInput.y)));
@@ -78,12 +85,14 @@ float dotProduct2DAngle(sf::Vector2f _firstInput, sf::Vector2f _secondInput) {
 
 
 
-/// SIMULATION CALCULATIONS ///
+/// BALL SIMULATION ///
 
-void Ball::Simulation(sf::Vector2u windowSize) {
+void Ball::Simulation(sf::RenderWindow* window, std::vector<Ball>* ballVector) {
 
-	float middleWidth = (float)windowSize.x / 2;
-	float middleHeight = (float)windowSize.y / 2;
+	//float middleWidth = (float)windowSize.x / 2;
+	//float middleHeight = (float)windowSize.y / 2;
+	float middleWidth = window->getSize().x / static_cast<float>(2);
+	float middleHeight = window->getSize().y / static_cast<float>(2);
 
 	// Calculates vector x and y to center.
 	float widthWeight = ballMovement.position.x - middleWidth;
@@ -96,30 +105,33 @@ void Ball::Simulation(sf::Vector2u windowSize) {
 	ballMovement.position.y += ballMovement.velocity.y;
 	ballMovement.position.x += ballMovement.velocity.x;
 
-	// Probably could just calculate the collision in here.
-
 	ballShape.setPosition(ballMovement.position);
+
+	// Checks for collisions by searching every other ball stored in the vector. terrible O(n^2) complexity.
+	for (int _targetBall = 0; _targetBall < ballVector->size(); _targetBall++) {
+
+		if (this->ID == ballVector->at(_targetBall).ID)
+			continue;
+
+		this->DetermineCollision(&ballVector->at(_targetBall));
+	}
 }
 
+
 void Ball::calculateCollision() {
-	ballMovement.velocity.x = randomWeight(25);
-	ballMovement.velocity.y = randomWeight(25);
+	ballMovement.velocity.x = randomWeight();
+	ballMovement.velocity.y = randomWeight();
 }
 
 
 void Ball::DetermineCollision(Ball* targetBall) {
-	// Dot product for angle requires the vector between the two ball points and our velocity vector of the main ball.
-	// We can then calculate the closest distance of the two and predict whether it will collide or not.
 
 	float displacementValue = dotProduct2D(ballMovement.position, targetBall->ballMovement.position);
-
 	float ballDepth = ballShape.getRadius() + targetBall->ballShape.getRadius();
 	
 	//std::cout << displacementValue << std::endl;
-	if (displacementValue >= ballDepth) {
+	if (displacementValue >= ballDepth)
 		return;
-	}
 
 	calculateCollision();
-	
 }

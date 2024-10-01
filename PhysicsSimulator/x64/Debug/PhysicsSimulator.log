@@ -1,4 +1,5 @@
 ﻿  main.cpp
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(29,81): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(29,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(77,84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(77,68): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(94,35): warning C4018: '<': signed/unsigned mismatch
   PhysicsSimulator.vcxproj -> C:\Users\A0096607\Documents\Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe

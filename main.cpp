@@ -12,55 +12,93 @@ static int RATIO = 92;
 static int WIDTH = RATIO * 16;
 static int HEIGHT = RATIO * 9;
 
+static float BALLWIDTH = 5.0f;
+static int BALLAMOUNT = 250;
+
+// For simulating the balls, I should create a TIME variable that can be modified rather than directly through FPS.
 static bool FPSBOOL = true;
-static float FPS = 60;
+static int FPS = 60;
+
+
+void keyHandler(sf::Event& event, sf::RenderWindow& window) {
+	switch (event.key.scancode) {
+
+	case sf::Keyboard::Scan::Escape:
+		window.close();
+		break;
+
+	case sf::Keyboard::W:
+		FPS += 1;
+		break;
+
+	case sf::Keyboard::S:
+		FPS -= 1;
+		break;
+
+	case sf::Keyboard::A:
+		FPSBOOL = true;
+		FPS = 60;
+		break;
+
+	case sf::Keyboard::D:
+		FPSBOOL = true;
+		FPS = 0;
+		break;
+
+	case sf::Keyboard::Scan::LShift:
+		FPS = 60;
+		FPSBOOL = false;
+		break;
+	}
+}
+
+
+void eventHandler(sf::Event& event, sf::RenderWindow& window) {
+	switch (event.type) {
+
+	case sf::Event::Closed:
+		window.close();
+		break;
+
+	case sf::Event::KeyPressed:
+		keyHandler(event, window);
+		break;
+	}
+}
 
 
 int main(void)
 {
 	sf::RenderWindow window(sf::VideoMode(WIDTH,HEIGHT), "Physics SFML Simulator");
-	sf::Clock deltaTime;
 
-	// Ball Vector
 	std::vector<Ball> ballVector;
-	float ballWidth = 10.0f;
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < BALLAMOUNT; i++) {
 		sf::Color randomBallColour = sf::Color(rand() % 255, rand() % 255, rand() % 255, 255);
-		ballVector.push_back(Ball(ballWidth, randomBallColour, rand() % WIDTH, rand() % HEIGHT));
+		ballVector.push_back(Ball(i, BALLWIDTH, randomBallColour, rand() % WIDTH, rand() % HEIGHT));
 	}
-
+	
+	sf::Clock deltaTime;
 
 	while (window.isOpen()) {
 
-		// Delta Time
-		uint32_t timeStep = deltaTime.getElapsedTime().asMilliseconds();
-		if (timeStep < 1000 / FPS && FPSBOOL == true) {
-			continue;
-		}
-
-		// Window Events
 		sf::Event event;
 		while (window.pollEvent(event)) {
-			if (event.type == sf::Event::Closed)
-				window.close();
+			eventHandler(event, window);
+		}
+
+		if (FPS <= 0)
+			continue;
+
+		uint32_t timeStep = deltaTime.getElapsedTime().asMilliseconds();
+		if (FPSBOOL == true && timeStep < 1000 / FPS) {
+			continue;
 		}
 
 		window.clear(sf::Color(0,0,15,255));
 
-		// Vector draw and Simulation.
+		// Vector Calls - simulate it's stored entities and draw them.
 		for (int _baseBall = 0; _baseBall < ballVector.size(); _baseBall++) {
-			ballVector[_baseBall].Simulation(window.getSize());
-
-			for (int _targetBall = 0; _targetBall < ballVector.size(); _targetBall++) {
-
-				if (_targetBall == _baseBall) {
-					continue;
-				}
-
-				//std::cout << "Base ball: " << _baseBall << " to Target ball: " << _targetBall << std::endl;
-				ballVector[_baseBall].DetermineCollision(&ballVector[_targetBall]);
-			}
-
+			ballVector[_baseBall].Simulation(&window, &ballVector);
 			ballVector[_baseBall].Draw(&window);
 		}
 

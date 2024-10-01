@@ -13,16 +13,20 @@ struct WorldMovement {
 
 class Ball {
 public:
-	Ball(float _inputWidth, sf::Color _inputColor);
-	Ball(float _inputWidth, sf::Color _inputColor, float _inputPositionX, float _inputPositionY);
+	//int ID;
 
-	void Simulation(sf::Vector2u windowSize);
+	Ball(int id, float _inputWidth, sf::Color _inputColor);
+	Ball(int id, float _inputWidth, sf::Color _inputColor, float _inputPositionX, float _inputPositionY);
+
 	void Draw(sf::RenderWindow* window);
 
+	void Simulation(sf::RenderWindow* window, std::vector<Ball>* ballVector);
+	
 	void DetermineCollision(Ball* ball);
 	void calculateCollision();
 
 private:
+	int ID;
 	bool DEBUG = true;
 
 	sf::CircleShape ballShape;
