@@ -4,9 +4,10 @@
 #include "Ball.h"
 
 
+int weight = 10;
 
 int randomWeight() {
-	return (rand() % 10 - (10 / 2));
+	return (rand() % weight - (weight / 2));
 }
 
 
@@ -27,7 +28,7 @@ Ball::Ball(int id, float _inputWidth, sf::Color _inputColor, float _inputPositio
 	ballShape.setPosition(ballMovement.position.x, ballMovement.position.y);
 	ballShape.setOrigin(_inputWidth, _inputWidth);
 	
-	// DEBUG: Sets random velocity between -5 and 5, gives more dynamic movement.
+	// DEBUG: Sets A random velocity, gives more dynamic movement.
 	ballMovement.velocity.x = randomWeight();
 	ballMovement.velocity.y = randomWeight();
 }
@@ -62,14 +63,9 @@ T squaredProduct(T _input) {
 	return _input;
 }
 
-// REMEMBER: Vectors a lines between TWO POINTS, you need four values with a 2D vector, six values for a 3D vector, etc.
-// 
-// |x| is vector magnitude. Pythagorean lenght of side c.
-// x.y is a vector dot product.
-// the standard formula for a dot product is a.b = |a||b|cos0
-// 
-// In this case we have two vectors, the distance to target and our velocity.
-// d.v = |d||v|cos0
+sf::Vector2f vectorProperty(sf::Vector2f tail, sf::Vector2f head) {
+	return head - tail;
+}
 
 float vectorMagnitude(sf::Vector2f _firstInput) {
 	return sqrt((squaredProduct(_firstInput.x)) + (squaredProduct(_firstInput.y)));
@@ -119,19 +115,27 @@ void Ball::Simulation(sf::RenderWindow* window, std::vector<Ball>* ballVector) {
 
 
 void Ball::calculateCollision() {
-	ballMovement.velocity.x = randomWeight();
-	ballMovement.velocity.y = randomWeight();
+	
 }
 
 
 void Ball::DetermineCollision(Ball* targetBall) {
 
-	float displacementValue = dotProduct2D(ballMovement.position, targetBall->ballMovement.position);
-	float ballDepth = ballShape.getRadius() + targetBall->ballShape.getRadius();
-	
-	//std::cout << displacementValue << std::endl;
-	if (displacementValue >= ballDepth)
-		return;
+	sf::Vector2f distanceVector = vectorProperty(ballMovement.position, targetBall->ballMovement.position);
 
-	calculateCollision();
+	sf::Vector2f mainVelocityVector = ballMovement.position + ballMovement.velocity;
+	sf::Vector2f targetVelocityVector = targetBall->ballMovement.position + targetBall->ballMovement.velocity;
+	sf::Vector2f relativeDisplacement = mainVelocityVector - targetVelocityVector;
+	
+	float displacementMagnitude = vectorMagnitude(relativeDisplacement);
+
+
+	float distanceMagnitude = vectorMagnitude(distanceVector);
+
+	float collisionScale = ballShape.getRadius() + targetBall->ballShape.getRadius();
+
+	if (distanceMagnitude <= collisionScale) {
+
+		calculateCollision();
+	}
 }

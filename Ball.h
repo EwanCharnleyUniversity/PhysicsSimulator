@@ -27,7 +27,7 @@ public:
 
 private:
 	int ID;
-	bool DEBUG = true;
+	bool DEBUG = false;
 
 	sf::CircleShape ballShape;
 	WorldMovement ballMovement;

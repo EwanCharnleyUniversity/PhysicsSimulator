@@ -12,8 +12,8 @@ static int RATIO = 92;
 static int WIDTH = RATIO * 16;
 static int HEIGHT = RATIO * 9;
 
-static float BALLWIDTH = 5.0f;
-static int BALLAMOUNT = 250;
+static float BALLWIDTH = 75.0f;
+static int BALLAMOUNT = 10;
 
 // For simulating the balls, I should create a TIME variable that can be modified rather than directly through FPS.
 static bool FPSBOOL = true;
@@ -69,6 +69,7 @@ void eventHandler(sf::Event& event, sf::RenderWindow& window) {
 
 int main(void)
 {
+	srand(time(NULL));
 	sf::RenderWindow window(sf::VideoMode(WIDTH,HEIGHT), "Physics SFML Simulator");
 
 	std::vector<Ball> ballVector;
