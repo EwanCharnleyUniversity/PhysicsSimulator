@@ -4,7 +4,7 @@
 #include <random>
 #include <SFML/Window.hpp>
 
-#include "Ball.h"
+#include "Particle.h"
 #include "DebugTools.h"
 
 
@@ -12,12 +12,9 @@ static int RATIO = 92;
 static int WIDTH = RATIO * 16;
 static int HEIGHT = RATIO * 9;
 
-static float BALLWIDTH = 75.0f;
-static int BALLAMOUNT = 10;
-
 // For simulating the balls, I should create a TIME variable that can be modified rather than directly through FPS.
-static bool FPSBOOL = true;
 static int FPS = 60;
+static bool FPSBOOL = true;
 
 
 void keyHandler(sf::Event& event, sf::RenderWindow& window) {
@@ -70,13 +67,14 @@ void eventHandler(sf::Event& event, sf::RenderWindow& window) {
 int main(void)
 {
 	srand(time(NULL));
-	sf::RenderWindow window(sf::VideoMode(WIDTH,HEIGHT), "Physics SFML Simulator");
+	sf::RenderWindow window(sf::VideoMode(WIDTH,HEIGHT), "Particle SFML Simulator");
 
-	std::vector<Ball> ballVector;
-	for (int i = 0; i < BALLAMOUNT; i++) {
-		sf::Color randomBallColour = sf::Color(rand() % 255, rand() % 255, rand() % 255, 255);
-		ballVector.push_back(Ball(i, BALLWIDTH, randomBallColour, rand() % WIDTH, rand() % HEIGHT));
-	}
+	// Contains all particles in the projects run-time.
+	particleRuntime particles;
+	//particles.addMultipleParticles(&window, 100);
+	particles.addParticle(&window);
+	particles.addParticle(&window);
+
 	
 	sf::Clock deltaTime;
 
@@ -97,11 +95,8 @@ int main(void)
 
 		window.clear(sf::Color(0,0,15,255));
 
-		// Vector Calls - simulate it's stored entities and draw them.
-		for (int _baseBall = 0; _baseBall < ballVector.size(); _baseBall++) {
-			ballVector[_baseBall].Simulation(&window, &ballVector);
-			ballVector[_baseBall].Draw(&window);
-		}
+		particles.simulateParticleRuntime(&window);
+		particles.drawParticleRuntime(&window);
 
 		window.display();
 		deltaTime.restart();

@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "Ball.h"
 
 
 class DebugTools {

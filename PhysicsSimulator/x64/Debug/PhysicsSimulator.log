@@ -1,12 +1,47 @@
-﻿  Ball.cpp
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(32,40): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(32,40): warning C4244:         with
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(32,40): warning C4244:         [
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(32,40): warning C4244:             T=float
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(32,40): warning C4244:         ]
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(33,40): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(33,40): warning C4244:         with
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(33,40): warning C4244:         [
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(33,40): warning C4244:             T=float
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Ball.cpp(33,40): warning C4244:         ]
+﻿  Particle.cpp
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(50,17): warning C4244: 'return': conversion from 'T' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(50,17): warning C4244:         with
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(50,17): warning C4244:         [
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(50,17): warning C4244:             T=unsigned int
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(50,17): warning C4244:         ]
+  (compiling source file 'Particle.cpp')
+  
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(54,17): warning C4244: 'return': conversion from 'T' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(54,17): warning C4244:         with
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(54,17): warning C4244:         [
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(54,17): warning C4244:             T=unsigned int
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(54,17): warning C4244:         ]
+  (compiling source file 'Particle.cpp')
+  
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(64,69): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Particle.cpp')
+  
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(69,70): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Particle.cpp')
+  
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.cpp(10,42): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(50,17): warning C4244: 'return': conversion from 'T' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(50,17): warning C4244:         with
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(50,17): warning C4244:         [
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(50,17): warning C4244:             T=unsigned int
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(50,17): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(54,17): warning C4244: 'return': conversion from 'T' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(54,17): warning C4244:         with
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(54,17): warning C4244:         [
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(54,17): warning C4244:             T=unsigned int
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(54,17): warning C4244:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(64,69): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Particle.h(69,70): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(69,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(92,35): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   PhysicsSimulator.vcxproj -> C:\Users\A0096607\Documents\Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe
