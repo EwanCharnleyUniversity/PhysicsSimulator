@@ -15,22 +15,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\Engine\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Particle.cpp">
+    <ClCompile Include="src\Objects\Particle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DebugTools.cpp">
+    <ClCompile Include="src\Engine\WorldSpace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Particle.h">
+    <ClInclude Include="src\Objects\Particle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DebugTools.h">
+    <ClInclude Include="src\Engine\WorldSpace.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\README.txt" />
   </ItemGroup>
 </Project>

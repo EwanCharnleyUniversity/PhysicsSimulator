@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Engine\\WorldSpace.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Engine\\WorldSpace.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Particle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:Particle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Engine\\WorldSpace.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Engine\\WorldSpace.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Particle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:Particle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\README.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\README.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Engine\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Engine\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,17 +26,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\main.cpp",
-              "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\main.cpp",
-              "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAEMAAAABAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Engine\\main.cpp",
+              "RelativeDocumentMoniker": "src\\Engine\\main.cpp",
+              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Engine\\main.cpp",
+              "RelativeToolTip": "src\\Engine\\main.cpp",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFwAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-03T13:00:07.538Z",
               "IsPinned": true,
@@ -41,28 +45,42 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Particle.h",
-              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Particle.h",
-              "RelativeDocumentMoniker": "Particle.h",
-              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Particle.h",
-              "RelativeToolTip": "Particle.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAkAAAAAAAAAA==",
+              "Title": "WorldSpace.h",
+              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Engine\\WorldSpace.h",
+              "RelativeDocumentMoniker": "src\\Engine\\WorldSpace.h",
+              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Engine\\WorldSpace.h",
+              "RelativeToolTip": "src\\Engine\\WorldSpace.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-24T10:55:39.15Z",
+              "WhenOpened": "2024-10-08T10:38:49.324Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WorldSpace.cpp",
+              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Engine\\WorldSpace.cpp",
+              "RelativeDocumentMoniker": "src\\Engine\\WorldSpace.cpp",
+              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Engine\\WorldSpace.cpp",
+              "RelativeToolTip": "src\\Engine\\WorldSpace.cpp",
+              "ViewState": "AgIAABsAAAAAAAAAAAAkwDIAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-08T10:38:38.573Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Particle.cpp",
-              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Particle.cpp",
-              "RelativeDocumentMoniker": "Particle.cpp",
-              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\Particle.cpp",
-              "RelativeToolTip": "Particle.cpp",
-              "ViewState": "AgIAAFkAAAAAAAAAAAD4v2wAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-24T10:55:30.79Z",
+              "Title": "README.txt",
+              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\README.txt",
+              "RelativeDocumentMoniker": "src\\README.txt",
+              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\README.txt",
+              "RelativeToolTip": "src\\README.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-10-08T11:02:14.458Z",
               "EditorCaption": ""
             }
           ]

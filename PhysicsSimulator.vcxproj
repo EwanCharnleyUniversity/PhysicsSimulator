@@ -109,7 +109,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Libraries\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Libraries\lib;C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Libraries\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -133,13 +133,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Particle.cpp" />
-    <ClCompile Include="DebugTools.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Engine\WorldSpace.cpp" />
+    <ClCompile Include="src\Objects\Particle.cpp" />
+    <ClCompile Include="src\Engine\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Particle.h" />
-    <ClInclude Include="DebugTools.h" />
+    <ClInclude Include="src\Engine\WorldSpace.h" />
+    <ClInclude Include="src\Objects\Particle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\README.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
