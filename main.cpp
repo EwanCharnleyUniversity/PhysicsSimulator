@@ -71,7 +71,7 @@ int main(void)
 
 	// Contains all particles in the projects run-time.
 	particleRuntime particles;
-	//particles.addMultipleParticles(&window, 100);
+
 	particles.addParticle(&window);
 	particles.addParticle(&window);
 

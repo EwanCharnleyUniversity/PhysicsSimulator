@@ -11,26 +11,33 @@ float randomWeight() {
 }
 
 
-Particle::Particle(int id, float _inputWidth, sf::Color _inputColor) : ID(id) {
-	particleShape = sf::CircleShape(_inputWidth);
-	particleShape.setOrigin(_inputWidth, _inputWidth);
+Particle::Particle(int id, float _inputRadius, sf::Color _inputColor) : ID(id) {
+	Radius = _inputRadius;
+	particleShape = sf::CircleShape(_inputRadius);
+	particleShape.setOrigin(_inputRadius, _inputRadius);
 	particleShape.setFillColor(_inputColor);
 }
 
-Particle::Particle(int id, float _inputWidth, sf::Color _inputColor, float _inputPositionX, float _inputPositionY) : ID(id) {
-	particleShape = sf::CircleShape(_inputWidth);
+Particle::Particle(int id, float _inputRadius, sf::Color _inputColor, float _inputPositionX, float _inputPositionY, float _inputPositionZ) : ID(id) {
+	Radius = _inputRadius;
+	particleShape = sf::CircleShape(_inputRadius);
 	particleShape.setFillColor(_inputColor);
 	baseColor = _inputColor;
 
-	particleMovement.positionTail.x = _inputPositionX;
-	particleMovement.positionTail.y = _inputPositionY;
+	particleMovement.position.x = _inputPositionX;
+	particleMovement.position.y = _inputPositionY;
+	particleMovement.position.z = _inputPositionZ;
 
-	particleShape.setPosition(particleMovement.positionTail.x, particleMovement.positionTail.y);
-	particleShape.setOrigin(_inputWidth, _inputWidth);
+	// Basic "perspective", no transformation.
+	particleShape.setRadius(_inputRadius / log(_inputPositionZ));
+
+	particleShape.setPosition(particleMovement.position.x, particleMovement.position.y);
+	particleShape.setOrigin(_inputRadius, _inputRadius);
 	
-	// DEBUG: Sets A random velocity, gives more dynamic movement.
-	particleMovement.velocityHead.x = randomWeight();
-	particleMovement.velocityHead.y = randomWeight();
+
+	particleMovement.position.x = randomWeight();
+	particleMovement.position.y = randomWeight();
+	particleMovement.position.z = randomWeight();
 }
 
 
@@ -39,19 +46,22 @@ Particle::Particle(int id, float _inputWidth, sf::Color _inputColor, float _inpu
 
 void Particle::Draw(sf::RenderWindow* window) {
 
+	particleShape.setRadius(Radius / log(particleMovement.position.z));
+
 	window->draw(particleShape);
 
 	if (!DEBUG) {
 		return;
 	}
 
-	// Draws lines if debug is true.
-	sf::Vertex vertices[] = {
-		sf::Vertex(particleMovement.positionTail, sf::Color(255,255,255)),
-		sf::Vertex(particleMovement.positionTail + particleMovement.velocityHead * sqrt(particleShape.getRadius()), sf::Color(0,0,0)),
-	};
 
-	window->draw(vertices, 2, sf::Lines);
+	// Draws lines if debug is true.
+	//sf::Vertex vertices[] = {
+	//	sf::Vertex(particleMovement.position, sf::Color(255,255,255)),
+	//	sf::Vertex(particleMovement.position + particleMovement.velocityHead * sqrt(particleShape.getRadius()), sf::Color(0,0,0)),
+	//};
+
+	//window->draw(vertices, 2, sf::Lines);
 }
 
 
@@ -62,19 +72,19 @@ T squaredProduct(T _input) {
 	return _input * _input;
 }
 
-sf::Vector2f vectorProperty(sf::Vector2f tail, sf::Vector2f head) {
+sf::Vector3f vectorProperty(sf::Vector3f tail, sf::Vector3f head) {
 	return head - tail;
 }
 
-float vectorMagnitude(sf::Vector2f _firstInput) {
+float vectorMagnitude(sf::Vector3f _firstInput) {
 	return sqrt(squaredProduct(_firstInput.x) + squaredProduct(_firstInput.y));
 }
 
-float dotProduct2D(sf::Vector2f _firstInput, sf::Vector2f _secondInput) {
+float dotProduct2D(sf::Vector3f _firstInput, sf::Vector3f _secondInput) {
 	return _firstInput.x * _secondInput.x + _firstInput.y * _secondInput.y;
 }
 
-float dotProduct2DAngle(sf::Vector2f _firstInput, sf::Vector2f _secondInput) {	
+float dotProduct2DAngle(sf::Vector3f _firstInput, sf::Vector3f _secondInput) {	
 	return acos(dotProduct2D(_firstInput,_secondInput) / (vectorMagnitude(_firstInput) * vectorMagnitude(_secondInput)));
 }
 
@@ -90,17 +100,18 @@ void Particle::Simulation(sf::RenderWindow* window, std::vector<Particle>* ballV
 	float middleHeight = window->getSize().y / static_cast<float>(2);
 
 	// Calculates vector x and y to center.
-	float widthWeight = particleMovement.positionTail.x - middleWidth;
-	float heightWeight = particleMovement.positionTail.y - middleHeight;
+	float widthWeight = particleMovement.position.x - middleWidth;
+	float heightWeight = particleMovement.position.y - middleHeight;
 
 	// Applies Gravitational Weight
-	particleMovement.velocityHead.x += widthWeight / -1000;
-	particleMovement.velocityHead.y += heightWeight / -1000;
+	particleMovement.velocity.x += widthWeight / -1000;
+	particleMovement.velocity.y += heightWeight / -1000;
 
-	particleMovement.positionTail.y += particleMovement.velocityHead.y;
-	particleMovement.positionTail.x += particleMovement.velocityHead.x;
+	particleMovement.position.y += particleMovement.velocity.y;
+	particleMovement.position.x += particleMovement.velocity.x;
+	particleMovement.position.x += particleMovement.velocity.z;
 
-	particleShape.setPosition(particleMovement.positionTail);
+	particleShape.setPosition(particleMovement.position.x, particleMovement.position.y);
 
 	// Checks for collisions by searching every other ball stored in the vector. terrible O(n^2) complexity.
 	for (int _targetBall = 0; _targetBall < ballVector->size(); _targetBall++) {
@@ -115,19 +126,19 @@ void Particle::Simulation(sf::RenderWindow* window, std::vector<Particle>* ballV
 
 void Particle::calculateCollision() {
 	particleShape.setFillColor(sf::Color(255,0,0,255));
-	particleMovement.velocityHead.x *= -1;
-	particleMovement.velocityHead.y *= -1;
+	particleMovement.velocity.x *= -1;
+	particleMovement.velocity.y *= -1;
+	particleMovement.velocity.z *= -1;
 }
 
 
 void Particle::DetermineCollision(Particle* targetBall) {
 
-	sf::Vector2f distanceVector = vectorProperty(particleMovement.positionTail, targetBall->particleMovement.positionTail);
-	//std::cout << distanceVector.x << "||" << distanceVector.y << std::endl;
+	sf::Vector3f distanceVector = vectorProperty(particleMovement.position, targetBall->particleMovement.position);
 
-	sf::Vector2f mainVelocityVector = particleMovement.positionTail + particleMovement.velocityHead;
-	sf::Vector2f targetVelocityVector = targetBall->particleMovement.positionTail + targetBall->particleMovement.velocityHead;
-	sf::Vector2f relativeDisplacement = mainVelocityVector - targetVelocityVector;
+	sf::Vector3f mainVelocityVector = particleMovement.position + particleMovement.velocity;
+	sf::Vector3f targetVelocityVector = targetBall->particleMovement.position + targetBall->particleMovement.velocity;
+	sf::Vector3f relativeDisplacement = mainVelocityVector - targetVelocityVector;
 	
 	float displacementMagnitude = vectorMagnitude(relativeDisplacement);
 

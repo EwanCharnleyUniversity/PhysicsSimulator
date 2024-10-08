@@ -6,17 +6,17 @@
 #include <SFML/Graphics.hpp>
 
 
-struct particleVector2D {
-	sf::Vector2f positionTail;
-	sf::Vector2f velocityHead;
+struct particleVector3D {
+	sf::Vector3f position;
+	sf::Vector3f velocity;
 };
 
 
 class Particle {
 public:
 
-	Particle(int id, float _inputWidth, sf::Color _inputColor);
-	Particle(int id, float _inputWidth, sf::Color _inputColor, float _inputPositionX, float _inputPositionY);
+	Particle(int id, float _inputRadius, sf::Color _inputColor);
+	Particle(int id, float _inputRadius, sf::Color _inputColor, float _inputPositionX, float _inputPositionY, float _inputPositionZ);
 
 	void Draw(sf::RenderWindow* window);
 
@@ -30,9 +30,10 @@ private:
 	bool DEBUG = false;
 
 	sf::CircleShape particleShape;
-	particleVector2D particleMovement;
+	particleVector3D particleMovement;
 
 	sf::Color baseColor = sf::Color(255, 255, 255, 255);
+	float Radius;
 };
 
 
@@ -54,6 +55,10 @@ struct particleRuntime {
 		return rand() % window->getSize().y;
 	}
 
+	float randomZCoord(sf::RenderWindow* window) {
+		return rand() % window->getSize().x;
+	}
+
 	sf::Color randomColor() {
 		return sf::Color(rand() % 255, rand() % 255, rand() % 255, 255);
 	}
@@ -61,12 +66,14 @@ struct particleRuntime {
 
 	// Particle Addition to Vector //
 	void addParticle(sf::RenderWindow* window) {
-		this->particleStore.push_back(Particle(this->particleStore.size() + 1, PARTICLESIZE, randomColor(), randomXCoord(window), randomYCoord(window)));
+		this->particleStore.push_back(Particle(this->particleStore.size() + 1, PARTICLESIZE, randomColor(),
+			randomXCoord(window), randomYCoord(window), randomZCoord(window)));
 	}
 
 	void addMultipleParticles(sf::RenderWindow* window, int amount) {
 		for (int i = 0; i < amount; i++) {
-			this->particleStore.push_back(Particle(this->particleStore.size() + 1, PARTICLESIZE, randomColor(), randomXCoord(window), randomYCoord(window)));
+			this->particleStore.push_back(Particle(this->particleStore.size() + 1, PARTICLESIZE, randomColor(),
+				randomXCoord(window), randomYCoord(window), randomZCoord(window)));
 		}
 	}
 
