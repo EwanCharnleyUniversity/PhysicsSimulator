@@ -3,23 +3,18 @@
 
 
 #include "SFML/Graphics.hpp"
-#include "vector"
 
+#include "../Objects/ObjectDatatypes.h"
 #include "WorldSpaceDatatypes.h"
-#include "../Objects/WorldSpaceParticle.h"
 
 
-struct worldContainers {
-	std::vector<WorldSpaceParticle> worldParticles;
-};
-
-
+// Camera contains the display window.
 class Camera {
 public:
 	Camera() {}
 	Camera(int _inputWidth, int _inputHeight, float x, float y, float z);
 
-	void Render(worldContainers Objects);
+	void Render(worldContainers* Objects);
 
 private:
 	sf::RenderWindow window;
@@ -30,10 +25,10 @@ private:
 };
 
 
+// The physical space of the Engine
 class WorldSpace {
 public:
 	WorldSpace();
-
 
 private:
 	Camera worldCamera;

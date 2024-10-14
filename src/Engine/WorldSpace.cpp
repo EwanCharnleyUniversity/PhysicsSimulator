@@ -3,11 +3,26 @@
 #include "WorldSpace.h"
 
 
-WorldSpace::WorldSpace() {
-	for (int i = 0; i < 250; i++) {
-		worldObjects.worldParticles.push_back(50.0f);
-	}
+int particleAmount = 100;
+float particleRadius = 50.0f;
 
-	Camera camera(1000, 1000, 0, 0, -250);
-	camera.Render(worldObjects);
+int WIDTH{ 1536 }, HEIGHT{ 864 };
+
+
+WorldSpace::WorldSpace() {
+
+	//for (int i = 0; i < particleAmount; i++) {
+	//	worldObjects.worldParticles.push_back(particleRadius);
+	//}
+
+	worldVector3D nullVector = { 0.0f, 0.0f, 0.0f };
+	worldVector3D firstParticlePosition = { 500.0f, 0.0f, 0.0f };
+
+	worldObjects.worldParticles.push_back({particleRadius, firstParticlePosition, nullVector });
+
+	worldObjects.worldStatics.push_back({125.0f, nullVector});
+
+
+	Camera camera(WIDTH, HEIGHT, 0, 0, -250.0f);
+	camera.Render(&worldObjects);
 }

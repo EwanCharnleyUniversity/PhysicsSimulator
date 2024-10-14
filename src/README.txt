@@ -5,6 +5,7 @@
 ENGINE contains all files related to the WORLDSPACE, CAMERA, and main Project stuff with a general application to all things within the scene.
 	- WORLDSPACE contains the CAMERA and is a virtual emulation of 3D space.
 	- CAMERA handles the view window and displays what would accurately be within eyesight expected for 3D view.
+	- WORLDSPACE DATATYPES holds useful structs such as Vector3D. Basically a repository of useful data that many things across the project might use.
 
 
 OBJECTS holds data pertaining to individual components of the scene, such as particles, planes, etc. Independent simulation and rendering are done here.
@@ -20,12 +21,12 @@ OBJECTS holds data pertaining to individual components of the scene, such as par
 ### HOW DOES WORLD SPACE WORK? ###
 ##################################
 
-In a computer, WORLDSPACE is a digital representation of an enviroment - be it a 2D, 3D, gas simulation volume, N-Body particle physics, etc. It is in essence an emulation of physical volume, although the actual accuracy
+In a computer, WORLDSPACE is a digital representation of an enviroment - be it 2D, 3D, gas simulation volume, N-Body particle physics, etc. It is in essence an emulation of physical volume, although the actual accuracy
 of said volume will not be accurate to real life physics - either due to simulation limitations, or the worldspace itself is not being used to gauge physics as a whole (rather, it can also be used in things like video
 game enviroments, interesting visual experiments, etc).
 
 A worldspace is NOT the same as the display window, a display window itself only shows a slice of the worldspace at a time - this is best examplified in the case of a game where the window can only display a portion of the games
-level at a time, the rest of the games level is still "there", we just cannot observe it through the window. That entire level is loaded within Worldspace.
+level, the rest of the games level is still "there" within the worldspace, we just cannot observe it's entirety through the window.
 
 
 

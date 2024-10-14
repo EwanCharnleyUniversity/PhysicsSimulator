@@ -1,7 +1,7 @@
 
+
 #include <iostream>
 #include "WorldSpace.h"
-
 
 
 Camera::Camera(int _inputWidth, int _inputHeight, float x, float y, float z) {
@@ -13,7 +13,7 @@ Camera::Camera(int _inputWidth, int _inputHeight, float x, float y, float z) {
 }
 
 
-void Camera::Render(worldContainers Objects) {
+void Camera::Render(worldContainers* Objects) {
 	float zVelocity = 0;
 
 	while (window.isOpen()) {
@@ -46,10 +46,14 @@ void Camera::Render(worldContainers Objects) {
 
 		window.clear(sf::Color(0, 0, 0));
 
-		// World Object Particles to the Render
-		for (int i = 0; i < Objects.worldParticles.size(); i++) {
-			Objects.worldParticles.at(i).Simulate();
-			Objects.worldParticles.at(i).Render(&window, cameraPosition.Z, viewingDistance);
+		// World Objects to the Render
+		for (int i = 0; i < Objects->worldStatics.size(); i++) {
+			Objects->worldStatics.at(i).Render(&window, cameraPosition.Z, viewingDistance);
+		}
+
+		for (int i = 0; i < Objects->worldParticles.size(); i++) {
+			Objects->worldParticles.at(i).Simulate();
+			Objects->worldParticles.at(i).Render(&window, cameraPosition.Z, viewingDistance);
 		}
 
 		window.display();

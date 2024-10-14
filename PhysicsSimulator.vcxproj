@@ -137,6 +137,7 @@
     <ClCompile Include="src\Engine\WorldSpace.cpp" />
     <ClCompile Include="src\Engine\main.cpp" />
     <ClCompile Include="src\Engine\WorldSpaceDatatypes.h" />
+    <ClCompile Include="src\Objects\ObjectDatatypes.h" />
     <ClCompile Include="src\Objects\WorldSpaceParticle.cpp" />
   </ItemGroup>
   <ItemGroup>
