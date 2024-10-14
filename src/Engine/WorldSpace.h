@@ -5,29 +5,29 @@
 #include "SFML/Graphics.hpp"
 #include "vector"
 
+#include "WorldSpaceDatatypes.h"
+#include "../Objects/WorldSpaceParticle.h"
 
-struct worldCoordinate3D {
-	float positionX, positionY, positionZ;
 
-
+struct worldContainers {
+	std::vector<WorldSpaceParticle> worldParticles;
 };
-
 
 
 class Camera {
 public:
+	Camera() {}
 	Camera(int _inputWidth, int _inputHeight, float x, float y, float z);
 
-	void Render();
+	void Render(worldContainers Objects);
 
 private:
 	sf::RenderWindow window;
-	worldCoordinate3D cameraPosition;
-	// Position in the Z axis
+	worldVector3D cameraPosition;
+
 	float viewingDistance = 100.0f;
 
 };
-
 
 
 class WorldSpace {
@@ -37,11 +37,9 @@ public:
 
 private:
 	Camera worldCamera;
+	worldContainers worldObjects;
 };
 
-
-// IDEA
-// WorldPoints will just render a basic point at the position of wherever they are assigned.
 
 
 #endif

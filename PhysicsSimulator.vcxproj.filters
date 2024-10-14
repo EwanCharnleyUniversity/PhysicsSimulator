@@ -18,18 +18,24 @@
     <ClCompile Include="src\Engine\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Objects\Particle.cpp">
+    <ClCompile Include="src\Engine\WorldSpace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\WorldSpace.cpp">
+    <ClCompile Include="src\Objects\WorldSpaceParticle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\WorldSpaceDatatypes.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Objects\Particle.h">
+    <ClInclude Include="src\Engine\WorldSpace.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\WorldSpace.h">
+    <ClInclude Include="src\Objects\WorldSpaceParticle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

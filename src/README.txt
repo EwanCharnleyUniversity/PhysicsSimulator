@@ -1,13 +1,37 @@
 
+### PROJECT STRUCTURE ###
+#########################
+
+ENGINE contains all files related to the WORLDSPACE, CAMERA, and main Project stuff with a general application to all things within the scene.
+	- WORLDSPACE contains the CAMERA and is a virtual emulation of 3D space.
+	- CAMERA handles the view window and displays what would accurately be within eyesight expected for 3D view.
+
+
+OBJECTS holds data pertaining to individual components of the scene, such as particles, planes, etc. Independent simulation and rendering are done here.
+	- STATICS are points possessing position and radius.
+	- PARTICLES are points with position, velocity, and radius.
+
+
+
+#################### NOTES AND OTHER STUFF ####################
+###############################################################
+
 
 ### HOW DOES WORLD SPACE WORK? ###
+##################################
 
-worldspace is not SFML window space, SFML is a window handler and is soley used to display things to the computer in a user friendly way.
-We create a Worldspace (which will be referred as WD) to actually represent 3D position and calculation.
+In a computer, WORLDSPACE is a digital representation of an enviroment - be it a 2D, 3D, gas simulation volume, N-Body particle physics, etc. It is in essence an emulation of physical volume, although the actual accuracy
+of said volume will not be accurate to real life physics - either due to simulation limitations, or the worldspace itself is not being used to gauge physics as a whole (rather, it can also be used in things like video
+game enviroments, interesting visual experiments, etc).
+
+A worldspace is NOT the same as the display window, a display window itself only shows a slice of the worldspace at a time - this is best examplified in the case of a game where the window can only display a portion of the games
+level at a time, the rest of the games level is still "there", we just cannot observe it through the window. That entire level is loaded within Worldspace.
 
 
 
 ### HOW DO WE DISPLAY THINGS? ###
+#################################
+
 Simple, we use a Camera.
 
 Camera's in world space are effectively a point in space that faces in one direction, it possesses a viewing Distance from which it angles it's viewing frustum.
@@ -30,4 +54,6 @@ of the screen is zero, while XY (or ZY, XZ, etc) can be positive or negative dep
 
 
 ### HOW DO WE MAKE SPHERES ADJUST PER PERSPECTIVE? ###
+######################################################
+
 SFML spheres aren't generated with perspective, we need to parse in the viewing distance between a point and adjust its radius by the product of something (TBD).

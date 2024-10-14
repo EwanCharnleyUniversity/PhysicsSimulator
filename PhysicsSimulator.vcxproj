@@ -133,13 +133,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Engine\Camera.cpp" />
     <ClCompile Include="src\Engine\WorldSpace.cpp" />
-    <ClCompile Include="src\Objects\Particle.cpp" />
     <ClCompile Include="src\Engine\main.cpp" />
+    <ClCompile Include="src\Engine\WorldSpaceDatatypes.h" />
+    <ClCompile Include="src\Objects\WorldSpaceParticle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine\WorldSpace.h" />
-    <ClInclude Include="src\Objects\Particle.h" />
+    <ClInclude Include="src\Objects\WorldSpaceParticle.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\README.txt" />

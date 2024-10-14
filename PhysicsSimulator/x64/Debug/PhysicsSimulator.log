@@ -1,2 +1,8 @@
-﻿  WorldSpace.cpp
+﻿  WorldSpaceDatatypes.h
+  main.cpp
+  WorldSpaceParticle.cpp
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\src\Objects\WorldSpaceParticle.cpp(9,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\src\Objects\WorldSpaceParticle.cpp(10,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\src\Objects\WorldSpaceParticle.cpp(11,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
   PhysicsSimulator.vcxproj -> C:\Users\A0096607\Documents\Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe
