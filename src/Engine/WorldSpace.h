@@ -11,14 +11,15 @@
 // Camera contains the display window.
 class Camera {
 public:
+	sf::RenderWindow window;
+
 	Camera() {}
 	Camera(int _inputWidth, int _inputHeight, float x, float y, float z);
 
 	void Render(worldContainers* Objects);
 
 private:
-	sf::RenderWindow window;
-	worldVector3D cameraPosition;
+	ObjectDatatype::Vector3D cameraPosition;
 
 	float viewingDistance = 100.0f;
 
@@ -36,5 +37,7 @@ private:
 };
 
 
+
+// TODO - move the Simulation and tick loop into Worldspace
 
 #endif

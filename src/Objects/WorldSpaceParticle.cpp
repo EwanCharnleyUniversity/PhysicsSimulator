@@ -4,102 +4,122 @@
 #include <iostream>
 #include "WorldSpaceParticle.h"
 
+
 int WEIGHT = 500;
+sf::Color BASE_COLOUR = { 255,255,255,255 };
+sf::Color COLLISION_COLOUR = { 255,0,0,255 };
 
-WorldSpaceParticle::WorldSpaceParticle(float _inputWidth) : TRUE_RADIUS(_inputWidth) {
-	particlePosition.X = rand() % 1000 - 500;
-	particlePosition.Y = rand() % 1000 - 500;
-	particlePosition.Z = rand() % 1000 - 500;
 
-	particleVelocity = worldVector3D{
+// Base Particle Shape Constructor
+sf::CircleShape baseParticle(float RADIUS) {
+	sf::CircleShape base;
+
+	base.setRadius(RADIUS);
+	base.setPointCount(64);
+	base.setOrigin(RADIUS, RADIUS);
+	base.setPosition({ 0,0 });
+	base.setFillColor(BASE_COLOUR);
+
+	return base;
+}
+
+
+// Only Width Input, random position, non static
+WorldSpaceParticle::WorldSpaceParticle(int _id, float _inputWidth, bool staticVal)
+	: ID(_id), TRUE_RADIUS(_inputWidth), isStatic(staticVal)
+{
+
+	particlePosition.X = (float)(rand() % 1000 - 500);
+	particlePosition.Y = (float)(rand() % 1000 - 500);
+	particlePosition.Z = (float)(rand() % 1000 - 500);
+
+	particleVelocity = Vector3D{
 		(float)(rand() % WEIGHT - (WEIGHT / 2)) / 10000,
 		(float)(rand() % WEIGHT - (WEIGHT / 2)) / 10000,
 		(float)(rand() % WEIGHT - (WEIGHT / 2)) / 10000
 	};
+
+	particleShape = baseParticle(5.0f);
 }
 
-WorldSpaceParticle::WorldSpaceParticle(float _inputWidth, worldVector3D inputPosition, worldVector3D inputVelocity)
-	: TRUE_RADIUS(_inputWidth), particlePosition(inputPosition), particleVelocity(inputVelocity) { }
+WorldSpaceParticle::WorldSpaceParticle(int _id, float _inputWidth, Vector3D inputPosition, Vector3D inputVelocity, bool staticVal)
+	: ID(_id), TRUE_RADIUS(_inputWidth), particlePosition(inputPosition), particleVelocity(inputVelocity), isStatic(staticVal)
+{
+	particleShape = baseParticle(5.0f);
+}
 
 
-void WorldSpaceParticle::Simulate() {
+void WorldSpaceParticle::Render(sf::RenderTarget* window, Vector3D cameraPosition, float viewingDistance) {
+	
+	float distance = particlePosition.Z - cameraPosition.Z;
+
+	if (distance <= 0)
+		return;
+	
+
+	float RENDER_RADIUS = TRUE_RADIUS * viewingDistance / distance;
+
+	particleShape.setRadius(RENDER_RADIUS);
+	particleShape.setOrigin(RENDER_RADIUS, RENDER_RADIUS);
+
+	particleShape.setPosition(
+		((particlePosition.X - cameraPosition.X) * viewingDistance / distance) + window->getSize().x / 2,
+		((particlePosition.Y - cameraPosition.Y) * viewingDistance / distance) * -1 + window->getSize().y / 2
+	);
+
+	window->draw(particleShape);
+}
+
+
+
+void WorldSpaceParticle::Simulate(std::vector<WorldSpaceParticle>* objects) {
+	bool hasCollided = false;
+
+	if (isStatic)
+		return;
+
+	// Calculation for collision O(n)
+	for (int i = 0; i < objects->size(); i++) {
+
+		WorldSpaceParticle& target = objects->at(i);
+
+		// Skip if the Target is the Parent.
+		if (target.ID == ID)
+			continue;
+
+		Vector3D toTargetVector = target.particlePosition;
+		toTargetVector.VectorSubtraction(particlePosition);
+
+		// Calculate the distance between particles by taking the angle between the velocity of the parent and the Target Vector, then multiply it by the magnitude of the Target Vector.
+		float distanceBetweenParticles = sin(particleVelocity.findAngleBetweenVectors(toTargetVector)) * toTargetVector.VectorMagnitude();
+		float collisionDistance = TRUE_RADIUS / 2 + target.TRUE_RADIUS / 2;
+
+		if (distanceBetweenParticles <= collisionDistance)
+		{
+			hasCollided = true;
+		}
+	}
+
+	if (hasCollided == true) {
+		particleShape.setFillColor(COLLISION_COLOUR);
+	}
+	else {
+		particleShape.setFillColor(BASE_COLOUR);
+	}
 
 	// Find world center and put the results into a vector.
-	worldVector3D worldCenter{
+	Vector3D worldCenter{
 		0 - particlePosition.X,
 		0 - particlePosition.Y,
 		0 - particlePosition.Z
 	};
 
+	// Create Gravitational Weight.
 	particleVelocity.X += worldCenter.X / 10000000.0f;
 	particleVelocity.Y += worldCenter.Y / 10000000.0f;
 	particleVelocity.Z += worldCenter.Z / 10000000.0f;
 
+	// Add Gravity
 	particlePosition.VectorAdd(particleVelocity);
+
 }
-
-
-void WorldSpaceParticle::Render(sf::RenderTarget* window, float cameraDistance, float viewingDistance) {
-	float particleDistance = (particlePosition.Z - cameraDistance) - viewingDistance;
-
-	if (particleDistance <= 0)
-		return;
-
-	// WorldSpace Transformations
-	float adjustedX = particlePosition.X * viewingDistance / particleDistance;
-	float adjustedY = particlePosition.Y * viewingDistance / particleDistance;
-	float RENDER_RADIUS = TRUE_RADIUS * viewingDistance / particleDistance;
-
-	// Particle circle parameters
-	sf::CircleShape circle(RENDER_RADIUS, 100);
-	circle.setOrigin(RENDER_RADIUS, RENDER_RADIUS);
-
-	circle.setPosition(
-		adjustedX + window->getSize().x / 2,
-		adjustedY * -1 + window->getSize().y / 2
-	);
-
-	circle.setFillColor(sf::Color(255, 255, 255, 255));
-
-	window->draw(circle);
-}
-
-
-
-// STATIC PARTICLE //
-
-WorldSpaceStatic::WorldSpaceStatic(float _inputWidth) : TRUE_RADIUS(_inputWidth) {
-	staticPosition.X = rand() % 1000 - 500;
-	staticPosition.Y = rand() % 1000 - 500;
-	staticPosition.Z = rand() % 1000 - 500;
-}
-
-WorldSpaceStatic::WorldSpaceStatic(float _inputWidth, worldVector3D inputPosition)
-	: TRUE_RADIUS(_inputWidth), staticPosition(inputPosition) {}
-
-
-void WorldSpaceStatic::Render(sf::RenderTarget* window, float cameraDistance, float viewingDistance) {
-	float staticDistance = (staticPosition.Z - cameraDistance) - viewingDistance;
-
-	if (staticDistance <= 0)
-		return;
-
-	// WorldSpace Transformations
-	float adjustedX = staticPosition.X * viewingDistance / staticDistance;
-	float adjustedY = staticPosition.Y * viewingDistance / staticDistance;
-	float RENDER_RADIUS = TRUE_RADIUS * viewingDistance / staticDistance;
-
-	// Particle circle parameters
-	sf::CircleShape circle(RENDER_RADIUS, 100);
-	circle.setOrigin(RENDER_RADIUS, RENDER_RADIUS);
-
-	circle.setPosition(
-		adjustedX + window->getSize().x / 2,
-		adjustedY * -1 + window->getSize().y / 2
-	);
-
-	circle.setFillColor(sf::Color(255, 255, 255, 255));
-
-	window->draw(circle);
-}
-

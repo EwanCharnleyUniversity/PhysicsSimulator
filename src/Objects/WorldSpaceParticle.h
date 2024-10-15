@@ -1,38 +1,30 @@
 #ifndef WORLDSPACE_PARTICLE_CLASS_H
 #define WORLDSPACE_PARTICLE_CLASS_H
 
-#include "../Engine/WorldSpaceDatatypes.h"
+#include "ObjectDatatypes.h"
 #include "SFML/Graphics.hpp"
+
+using namespace ObjectDatatype;
 
 
 class WorldSpaceParticle {
 public:
-	WorldSpaceParticle(float _inputWidth);
-	WorldSpaceParticle(float _inputWidth, worldVector3D inputPosition, worldVector3D inputVelocity);
+	WorldSpaceParticle(int _id, float _inputWidth, bool staticVal);
+	WorldSpaceParticle(int _id, float _inputWidth, Vector3D inputPosition, Vector3D inputVelocity, bool staticVal);
 
-	void Simulate();
+	void Simulate(std::vector<WorldSpaceParticle>* _input);
 
-	void Render(sf::RenderTarget* window, float cameraDistance, float viewingDistance);
-
-private:
-	worldVector3D particlePosition;
-	worldVector3D particleVelocity;
-	
-	float TRUE_RADIUS;
-};
-
-
-class WorldSpaceStatic {
-public:
-	WorldSpaceStatic(float _inputWidth);
-	WorldSpaceStatic(float _inputWidth, worldVector3D inputPosition);
-
-	void Render(sf::RenderTarget* window, float cameraDistance, float viewingDistance);
+	void Render(sf::RenderTarget* window, Vector3D cameraPosition, float viewingDistance);
 
 private:
-	worldVector3D staticPosition;
-
+	int ID;
 	float TRUE_RADIUS;
+	bool isStatic = true;
+
+	Vector3D particlePosition;
+	Vector3D particleVelocity;
+
+	sf::CircleShape particleShape;
 };
 
 

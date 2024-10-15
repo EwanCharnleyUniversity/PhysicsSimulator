@@ -1,16 +1,29 @@
 
+
 ### PROJECT STRUCTURE ###
 #########################
 
 ENGINE contains all files related to the WORLDSPACE, CAMERA, and main Project stuff with a general application to all things within the scene.
 	- WORLDSPACE contains the CAMERA and is a virtual emulation of 3D space.
 	- CAMERA handles the view window and displays what would accurately be within eyesight expected for 3D view.
-	- WORLDSPACE DATATYPES holds useful structs such as Vector3D. Basically a repository of useful data that many things across the project might use.
+	- WORLDSPACE_DATATYPES holds useful data for worldspace related activities, such as an Object Container which handles Object storage.
 
 
 OBJECTS holds data pertaining to individual components of the scene, such as particles, planes, etc. Independent simulation and rendering are done here.
-	- STATICS are points possessing position and radius.
 	- PARTICLES are points with position, velocity, and radius.
+		- they also have a boolean determining whether they are static or not, set to a base of false. If true, the particle will not be simulated, frozen in position.
+	- OBJECT_DATATYPES holds data useful for all Objects in the scene, such as 3D Vectors.
+
+
+#################### PLANS ####################
+###############################################
+
+ - Recompartilise Program to have a Graphics Engine and Physics Engine classes, seperate the Worldspace away from handling absolutely everything (important)
+ - Obviously get the collision physics done.
+ - 
+ - 
+
+
 
 
 
@@ -58,3 +71,13 @@ of the screen is zero, while XY (or ZY, XZ, etc) can be positive or negative dep
 ######################################################
 
 SFML spheres aren't generated with perspective, we need to parse in the viewing distance between a point and adjust its radius by the product of something (TBD).
+
+
+
+
+
+
+
+
+
+
