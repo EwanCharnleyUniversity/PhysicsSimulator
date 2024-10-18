@@ -12,6 +12,7 @@
 class Camera {
 public:
 	sf::RenderWindow window;
+	ObjectDatatype::Vector3D cameraPosition;
 
 	Camera() {}
 	Camera(int _inputWidth, int _inputHeight, float x, float y, float z);
@@ -19,8 +20,6 @@ public:
 	void Render(worldContainers* Objects);
 
 private:
-	ObjectDatatype::Vector3D cameraPosition;
-
 	float viewingDistance = 100.0f;
 
 };
@@ -32,7 +31,6 @@ public:
 	WorldSpace();
 
 private:
-	Camera worldCamera;
 	worldContainers worldObjects;
 };
 

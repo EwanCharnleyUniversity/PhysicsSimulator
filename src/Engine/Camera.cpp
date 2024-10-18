@@ -17,9 +17,9 @@ void Camera::Render(worldContainers* Objects) {
 
 	// Render World Objects
 	for (int i = 0; i < Objects->worldParticles.size(); i++) {
-		Objects->worldParticles.at(i).Simulate(&Objects->worldParticles);
-		//Objects->worldParticles.at(i).Render(&window, cameraPosition, viewingDistance);
 		Objects->worldParticles.at(i).Render(&window, cameraPosition, viewingDistance);
+		Objects->worldParticles.at(i).Simulate(&window, cameraPosition, viewingDistance, &Objects->worldParticles);
+		//Objects->worldParticles.at(i).Render(&window, cameraPosition, viewingDistance);
 	}
 
 	window.display();

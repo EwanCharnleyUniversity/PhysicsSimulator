@@ -7,33 +7,80 @@
 
 
 namespace ObjectDatatype {
-
 	struct Vector3D {
 		float X, Y, Z;
 
-		// Operators for inputting other Vectors
-		void VectorAdd(Vector3D _input) {
-			this->X += _input.X;
-			this->Y += _input.Y;
-			this->Z += _input.Z;
+		// Vector3D operator overload functions for: x o= y
+		inline Vector3D operator +=(const Vector3D& rhs)
+		{
+			X += rhs.X;
+			Y += rhs.Y;
+			Z += rhs.Z;
+
+			return { X, Y, Z };
 		}
 
-		void VectorSubtraction(Vector3D input) {
-			this->X -= input.X;
-			this->Y -= input.Y;
-			this->Z -= input.Z;
+		inline Vector3D operator +=(const float& rhs)
+		{
+			X += rhs;
+			Y += rhs;
+			Z += rhs;
+
+			return { X, Y, Z };
 		}
 
-		void VectorMultiplication(Vector3D input) {
-			this->X *= input.X;
-			this->Y *= input.Y;
-			this->Z *= input.Z;
+		inline Vector3D operator -=(const Vector3D& rhs)
+		{
+			X -= rhs.X;
+			Y -= rhs.Y;
+			Z -= rhs.Z;
+
+			return { X, Y, Z };
 		}
 
-		void VectorDivision(Vector3D input) {
-			this->X /= input.X;
-			this->Y /= input.Y;
-			this->Z /= input.Z;
+		inline Vector3D operator -=(const float& rhs)
+		{
+			X -= rhs;
+			Y -= rhs;
+			Z -= rhs;
+
+			return { X, Y, Z };
+		}
+
+		inline Vector3D operator *=(const Vector3D& rhs)
+		{
+			X *= rhs.X;
+			Y *= rhs.Y;
+			Z *= rhs.Z;
+
+			return { X, Y, Z };
+		}
+
+		inline Vector3D operator *=(const float& rhs)
+		{
+			X *= rhs;
+			Y *= rhs;
+			Z *= rhs;
+
+			return { X, Y, Z };
+		}
+
+		inline Vector3D operator /=(const Vector3D& rhs)
+		{
+			X /= rhs.X;
+			Y /= rhs.Y;
+			Z /= rhs.Z;
+
+			return { X, Y, Z };
+		}
+
+		inline Vector3D operator /=(const float& rhs)
+		{
+			X /= rhs;
+			Y /= rhs;
+			Z /= rhs;
+
+			return { X, Y, Z };
 		}
 
 
@@ -66,7 +113,85 @@ namespace ObjectDatatype {
 			<< std::endl;
 		}
 	};
+
+
+
+	// Vector3D operator overloads for: x = x + y
+	Vector3D operator+(Vector3D lhs, const Vector3D& rhs)
+	{
+		lhs.X += rhs.X;
+		lhs.Y += rhs.Y;
+		lhs.Z += rhs.Z;
+
+		return lhs;
+	}
+
+	Vector3D operator+(Vector3D lhs, const float& rhs)
+	{
+		lhs.X += rhs;
+		lhs.Y += rhs;
+		lhs.Z += rhs;
+
+		return lhs;
+	}
+
+	Vector3D operator-(Vector3D lhs, const Vector3D& rhs)
+	{
+		lhs.X -= rhs.X;
+		lhs.Y -= rhs.Y;
+		lhs.Z -= rhs.Z;
+
+		return lhs;
+	}
+
+	Vector3D operator-(Vector3D lhs, const float& rhs)
+	{
+		lhs.X -= rhs;
+		lhs.Y -= rhs;
+		lhs.Z -= rhs;
+
+		return lhs;
+	}
+
+	Vector3D operator*(Vector3D lhs, const Vector3D& rhs)
+	{
+		lhs.X *= rhs.X;
+		lhs.Y *= rhs.Y;
+		lhs.Z *= rhs.Z;
+
+		return lhs;
+	}
+
+	Vector3D operator*(Vector3D lhs, const float& rhs)
+	{
+		lhs.X *= rhs;
+		lhs.Y *= rhs;
+		lhs.Z *= rhs;
+
+		return lhs;
+	}
+
+	Vector3D operator/(Vector3D lhs, const Vector3D& rhs)
+	{
+		lhs.X /= rhs.X;
+		lhs.Y /= rhs.Y;
+		lhs.Z /= rhs.Z;
+
+		return lhs;
+	}
+
+	Vector3D operator/(Vector3D lhs, const float& rhs)
+	{
+		lhs.X /= rhs;
+		lhs.Y /= rhs;
+		lhs.Z /= rhs;
+
+		return lhs;
+	}
+
 }
+
+
 
 
 #endif

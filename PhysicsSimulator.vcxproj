@@ -109,7 +109,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Libraries\lib;C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Libraries\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>Libraries\lib;C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Libraries\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -128,7 +128,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Libraries\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>Libraries\lib;</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

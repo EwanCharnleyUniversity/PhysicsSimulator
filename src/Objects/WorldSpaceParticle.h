@@ -12,7 +12,7 @@ public:
 	WorldSpaceParticle(int _id, float _inputWidth, bool staticVal);
 	WorldSpaceParticle(int _id, float _inputWidth, Vector3D inputPosition, Vector3D inputVelocity, bool staticVal);
 
-	void Simulate(std::vector<WorldSpaceParticle>* _input);
+	void Simulate(sf::RenderTarget* window, Vector3D cameraPosition, float viewingDistance, std::vector<WorldSpaceParticle>* _input);
 
 	void Render(sf::RenderTarget* window, Vector3D cameraPosition, float viewingDistance);
 
