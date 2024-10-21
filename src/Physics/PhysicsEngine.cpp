@@ -3,15 +3,17 @@
 
 #include "PhysicsEngine.h"
 #include "../Graphics/GraphicsEngine.h"
+#include "../Objects/QuadPlane.h"
 
 
-PhysicsEngine::PhysicsEngine(GraphicsEngine& graphicsPoint) {
-	graphics = &graphicsPoint;
-}
+PhysicsEngine::PhysicsEngine(GraphicsEngine& graphicsPoint) : graphics(&graphicsPoint) {}
 
 
 void PhysicsEngine::Simulate() {
 	sf::Clock FPS;
+
+	// For future plane rendering, but for now it's just used to test Point3D and Vector3D.
+	QuadPlane testPlane;
 
 	// Main simulation logic
 	while (graphics->window.isOpen()) {
@@ -22,7 +24,8 @@ void PhysicsEngine::Simulate() {
 			continue;
 		}
 
-
+		testPlane.Simulate();
+		
 		graphics->Render();
 		FPS.restart();
 	}

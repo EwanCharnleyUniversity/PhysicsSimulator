@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="src\Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Objects\ObjectDatatypes.cpp" />
     <ClCompile Include="src\Objects\QuadPlane.cpp" />
     <ClCompile Include="src\Physics\PhysicsEngine.cpp" />
   </ItemGroup>

@@ -12,7 +12,8 @@ GRAPHICS contains all files related to the Graphics Engine, it handles things su
 
 
 OBJECTS contains all files related to actors in the program, such as particles or planes.
-
+	- Particles are perfectly round balls which posses a center point which dictates position in worldspace.
+	- Quad Planes are flat squares representing surfaces - such as floors or walls. They are represented by four vertices in 3D.
 
 
 

@@ -12,10 +12,9 @@ public:
 
 	void Simulate();
 
-
 private:
 	GraphicsEngine* graphics;
-	double TIME;
+	double TIME = 1.0;
 
 };
 

@@ -6,6 +6,8 @@
 class QuadPlane {
 public:
 	QuadPlane();
+
+	void Simulate();
 };
 
 

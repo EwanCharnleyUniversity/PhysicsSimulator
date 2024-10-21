@@ -7,17 +7,21 @@
 
 QuadPlane::QuadPlane() {
 
-	// Testing out Vector3D maths.
-	Vector3D a{1, 1, 1};
-	a += {1, 1, 1};
-	std::cout << a.X << " " << a.Y << " " << a.Z << std::endl;
+	// Vector Structures
+	Vector3D vector( { 0,0,0 }, {0,500,-100} );
+	Vector3D origin( {0,0,0}, {100,100,100} );
 
-	a -= {0.25, -1, 1.5};
-	std::cout << a.X << " " << a.Y << " " << a.Z << std::endl;
+	std::cout << "Vector parameters for test vector and origin are: " << std::endl;
+	vector.PrintVector();
+	origin.PrintVector();
 
-	a *= {4, 1, 1};
-	std::cout << a.X << " " << a.Y << " " << a.Z << std::endl;
+	std::cout << "Magnitude of test vector is: " << vector.VectorMagnitude() << std::endl;
+	std::cout << "Magnitude of origin vector is: " << origin.VectorMagnitude() << std::endl;
+	std::cout << "Dot product of test vector to origin vector is: " << vector.VectorDotProduct(origin) << std::endl;
+	std::cout << "Angle betwee test vector and origin vector is: " << vector.findAngleBetweenVectors(origin) << std::endl;
+	
+}
 
-	a /= {0.5, 0.25, 1.5};
-	std::cout << a.X << " " << a.Y << " " << a.Z << std::endl;
+void QuadPlane::Simulate() {
+	std::cout << "Simulated!" << std::endl;
 }
