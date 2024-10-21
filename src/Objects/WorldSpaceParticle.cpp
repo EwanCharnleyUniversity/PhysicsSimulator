@@ -79,80 +79,80 @@ float squared(float input) {
 void WorldSpaceParticle::Simulate(sf::RenderTarget* window, Vector3D cameraPosition,
 										float viewingDistance, std::vector<WorldSpaceParticle>* objects	)
 {
-	bool hasCollided = false;
-
-	if (isStatic)
-		return;
-
-	// Find world center and put the results into a vector.
-	Vector3D worldCenter{
-		0 - particlePosition.X,
-		0 - particlePosition.Y,
-		0 - particlePosition.Z
-	};
-
-	// Create Gravitational Weight.
-	particleVelocity.X += worldCenter.X / 10000.0f;
-	particleVelocity.Y += worldCenter.Y / 10000.0f;
-	particleVelocity.Z += worldCenter.Z / 10000.0f;
-
-	// Add Gravity
-	particlePosition += particleVelocity;
-
-	// Calculation for collision O(n)
-	for (int i = 0; i < objects->size(); i++) {
-
-		WorldSpaceParticle& target = objects->at(i);
-
-		// Skip if the Target is the Parent.
-		if (target.ID == ID)
-			continue;
-
-		Vector3D toTargetVector = target.particlePosition;
-		toTargetVector -= particlePosition;
-
-		// Calculate the distance between particles by taking the angle between the velocity of the parent and the Target Vector, then multiply it by the magnitude of the Target Vector.
-		float angleBetweenParticles = particlePosition.findAngleBetweenVectors(toTargetVector);
-		float closestDistance = sin(angleBetweenParticles) * toTargetVector.VectorMagnitude();
-		float collisionDistance = TRUE_RADIUS / 2 + target.TRUE_RADIUS / 2;
-
-
-		if (closestDistance <= collisionDistance)
-		{
-			// To find out where the Particles actually collides, we calculate the Square root of the particles combined radius squared minus the square of the closest distance.
-			float collisionPoint = sqrtf( squared(collisionDistance) - squared(closestDistance) );
-
-			// Then we take the cos of the angle and the magnitude of the target particle to particle vector, minus the collision Point.
-			float adjustedVelocityMagnitude = cos(angleBetweenParticles) * toTargetVector.VectorMagnitude() - collisionPoint;
-
-			// Now we find the actual Vector rather than it's magnitude via |Vc| * V / |V|.
-			Vector3D collisionPointVector = particleVelocity;
-
-			collisionPointVector *= adjustedVelocityMagnitude;
-			collisionPointVector /= particleVelocity.VectorMagnitude();
-			collisionPointVector += particlePosition;
-
-
-			float distance = collisionPointVector.Z - cameraPosition.Z;
-
-			sf::Vertex toPoint[] = {
-				sf::Vertex(particleShape.getPosition(), {255,255,255,255}),
-				sf::Vertex({
-					((collisionPointVector.X - cameraPosition.X) * viewingDistance / distance) + window->getSize().x / 2,
-					((collisionPointVector.Y - cameraPosition.Y) * viewingDistance / distance) + window->getSize().y / 2}, {0,0,255,255}
-				),
-			};
-
-			window->draw(toPoint, 2, sf::Lines);
-
-			hasCollided = true;
-		}
-	}
-
-	if (hasCollided == true) {
-		particleShape.setFillColor(COLLISION_COLOUR);
-	}
-	else {
-		particleShape.setFillColor(BASE_COLOUR);
-	}
+	//bool hasCollided = false;
+	//
+	//if (isStatic)
+	//	return;
+	//
+	//// Find world center and put the results into a vector.
+	//Vector3D worldCenter{
+	//	0 - particlePosition.X,
+	//	0 - particlePosition.Y,
+	//	0 - particlePosition.Z
+	//};
+	//
+	//// Create Gravitational Weight.
+	//particleVelocity.X += worldCenter.X / 10000.0f;
+	//particleVelocity.Y += worldCenter.Y / 10000.0f;
+	//particleVelocity.Z += worldCenter.Z / 10000.0f;
+	//
+	//// Add Gravity
+	//particlePosition += particleVelocity;
+	//
+	//// Calculation for collision O(n)
+	//for (int i = 0; i < objects->size(); i++) {
+	//
+	//	WorldSpaceParticle& target = objects->at(i);
+	//
+	//	// Skip if the Target is the Parent.
+	//	if (target.ID == ID)
+	//		continue;
+	//
+	//	Vector3D toTargetVector = target.particlePosition;
+	//	toTargetVector -= particlePosition;
+	//
+	//	// Calculate the distance between particles by taking the angle between the velocity of the parent and the Target Vector, then multiply it by the magnitude of the Target Vector.
+	//	float angleBetweenParticles = particlePosition.findAngleBetweenVectors(toTargetVector);
+	//	float closestDistance = sin(angleBetweenParticles) * toTargetVector.VectorMagnitude();
+	//	float collisionDistance = TRUE_RADIUS / 2 + target.TRUE_RADIUS / 2;
+	//
+	//
+	//	if (closestDistance <= collisionDistance)
+	//	{
+	//		// To find out where the Particles actually collides, we calculate the Square root of the particles combined radius squared minus the square of the closest distance.
+	//		float collisionPoint = sqrtf( squared(collisionDistance) - squared(closestDistance) );
+	//
+	//		// Then we take the cos of the angle and the magnitude of the target particle to particle vector, minus the collision Point.
+	//		float adjustedVelocityMagnitude = cos(angleBetweenParticles) * toTargetVector.VectorMagnitude() - collisionPoint;
+	//
+	//		// Now we find the actual Vector rather than it's magnitude via |Vc| * V / |V|.
+	//		Vector3D collisionPointVector = particleVelocity;
+	//
+	//		collisionPointVector *= adjustedVelocityMagnitude;
+	//		collisionPointVector /= particleVelocity.VectorMagnitude();
+	//		collisionPointVector += particlePosition;
+	//
+	//
+	//		float distance = collisionPointVector.Z - cameraPosition.Z;
+	//
+	//		sf::Vertex toPoint[] = {
+	//			sf::Vertex(particleShape.getPosition(), {255,255,255,255}),
+	//			sf::Vertex({
+	//				((collisionPointVector.X - cameraPosition.X) * viewingDistance / distance) + window->getSize().x / 2,
+	//				((collisionPointVector.Y - cameraPosition.Y) * viewingDistance / distance) + window->getSize().y / 2}, {0,0,255,255}
+	//			),
+	//		};
+	//
+	//		window->draw(toPoint, 2, sf::Lines);
+	//
+	//		hasCollided = true;
+	//	}
+	//}
+	//
+	//if (hasCollided == true) {
+	//	particleShape.setFillColor(COLLISION_COLOUR);
+	//}
+	//else {
+	//	particleShape.setFillColor(BASE_COLOUR);
+	//}
 }

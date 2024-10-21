@@ -3,23 +3,24 @@
 ### PROJECT STRUCTURE ###
 #########################
 
-ENGINE contains all files related to the WORLDSPACE, CAMERA, and main Project stuff with a general application to all things within the scene.
-	- WORLDSPACE contains the CAMERA and is a virtual emulation of 3D space.
-	- CAMERA handles the view window and displays what would accurately be within eyesight expected for 3D view.
-	- WORLDSPACE_DATATYPES holds useful data for worldspace related activities, such as an Object Container which handles Object storage.
+PHYSICS contains all files related to the Physics Engine, it calculates worldspace and is the defacto "holder" of the programs simulated reality.
+	- the Physics Engine contains a pointer towards the Graphics Engine as a way to call upon rendering at any stage of simulation.
 
 
-OBJECTS holds data pertaining to individual components of the scene, such as particles, planes, etc. Independent simulation and rendering are done here.
-	- PARTICLES are points with position, velocity, and radius.
-		- they also have a boolean determining whether they are static or not, set to a base of false. If true, the particle will not be simulated, frozen in position.
-	- OBJECT_DATATYPES holds data useful for all Objects in the scene, such as 3D Vectors.
+GRAPHICS contains all files related to the Graphics Engine, it handles things such as the visual window and 3D transformations.
+	- The Graphics Engine is self-enclosed, meaning it has no external pointers to anything else in the project. It is black boxed.
+
+
+OBJECTS contains all files related to actors in the program, such as particles or planes.
+
+
 
 
 #################### PLANS ####################
 ###############################################
 
  - Recompartilise Program to have a Graphics Engine and Physics Engine classes, seperate the Worldspace away from handling absolutely everything (important)
- - Obviously get the collision physics done.
+ - Obviously get the collision physics done wholly (moving ball to static ball, ball to plane, moving balls to moving balls).
  - 
  - 
 

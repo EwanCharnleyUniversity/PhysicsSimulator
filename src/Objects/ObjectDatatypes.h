@@ -11,77 +11,77 @@ namespace ObjectDatatype {
 		float X, Y, Z;
 
 		// Vector3D operator overload functions for: x o= y
-		inline Vector3D operator +=(const Vector3D& rhs)
-		{
-			X += rhs.X;
-			Y += rhs.Y;
-			Z += rhs.Z;
+		//Vector3D operator +=(const Vector3D& rhs)
+		//{
+		//	X += rhs.X;
+		//	Y += rhs.Y;
+		//	Z += rhs.Z;
 
-			return { X, Y, Z };
-		}
+		//	return { X, Y, Z };
+		//}
 
-		inline Vector3D operator +=(const float& rhs)
-		{
-			X += rhs;
-			Y += rhs;
-			Z += rhs;
+		//Vector3D operator +=(const float rhs)
+		//{
+		//	X += rhs;
+		//	Y += rhs;
+		//	Z += rhs;
 
-			return { X, Y, Z };
-		}
+		//	return { X, Y, Z };
+		//}
 
-		inline Vector3D operator -=(const Vector3D& rhs)
-		{
-			X -= rhs.X;
-			Y -= rhs.Y;
-			Z -= rhs.Z;
+		//Vector3D operator -=(const Vector3D& rhs)
+		//{
+		//	X -= rhs.X;
+		//	Y -= rhs.Y;
+		//	Z -= rhs.Z;
 
-			return { X, Y, Z };
-		}
+		//	return { X, Y, Z };
+		//}
 
-		inline Vector3D operator -=(const float& rhs)
-		{
-			X -= rhs;
-			Y -= rhs;
-			Z -= rhs;
+		//Vector3D operator -=(const float rhs)
+		//{
+		//	X -= rhs;
+		//	Y -= rhs;
+		//	Z -= rhs;
 
-			return { X, Y, Z };
-		}
+		//	return { X, Y, Z };
+		//}
 
-		inline Vector3D operator *=(const Vector3D& rhs)
-		{
-			X *= rhs.X;
-			Y *= rhs.Y;
-			Z *= rhs.Z;
+		//Vector3D operator *=(const Vector3D& rhs)
+		//{
+		//	X *= rhs.X;
+		//	Y *= rhs.Y;
+		//	Z *= rhs.Z;
 
-			return { X, Y, Z };
-		}
+		//	return { X, Y, Z };
+		//}
 
-		inline Vector3D operator *=(const float& rhs)
-		{
-			X *= rhs;
-			Y *= rhs;
-			Z *= rhs;
+		//Vector3D operator *=(const float rhs)
+		//{
+		//	X *= rhs;
+		//	Y *= rhs;
+		//	Z *= rhs;
 
-			return { X, Y, Z };
-		}
+		//	return { X, Y, Z };
+		//}
 
-		inline Vector3D operator /=(const Vector3D& rhs)
-		{
-			X /= rhs.X;
-			Y /= rhs.Y;
-			Z /= rhs.Z;
+		//Vector3D operator /=(const Vector3D& rhs)
+		//{
+		//	X /= rhs.X;
+		//	Y /= rhs.Y;
+		//	Z /= rhs.Z;
 
-			return { X, Y, Z };
-		}
+		//	return { X, Y, Z };
+		//}
 
-		inline Vector3D operator /=(const float& rhs)
-		{
-			X /= rhs;
-			Y /= rhs;
-			Z /= rhs;
+		//Vector3D operator /=(const float rhs)
+		//{
+		//	X /= rhs;
+		//	Y /= rhs;
+		//	Z /= rhs;
 
-			return { X, Y, Z };
-		}
+		//	return { X, Y, Z };
+		//}
 
 
 		float squared(float input) {
