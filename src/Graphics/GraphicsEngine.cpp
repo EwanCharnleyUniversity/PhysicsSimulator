@@ -1,37 +1,65 @@
 
 #include "GraphicsEngine.h"
 #include "SFML/Graphics.hpp"
+#include "../Objects/ObjectDatatypes.h"
+
+#include <iostream>
+
+
+Camera::Camera() {
+	position = new Point3D{ 0,0,-250.0 };
+}
+
+void Camera::Simulate() {
+	//position->Z += -1;
+}
+
+
+bool GraphicsEngine::IsPositionBehind(double pointZ) {
+	if (pCamera.position->Z - pointZ <= 0)
+		return false;
+
+	return true;
+}
+
+
+sf::Vector2f GraphicsEngine::WindowTranslation(Point3D* point) {
+	float distance = pCamera.position->Z - point->Z;
+
+	sf::Vector2f translation{
+		(float)((point->X - pCamera.position->X) * pCamera.viewingDistance / distance) + Window.getSize().x / 2,
+		(float)((point->Y - pCamera.position->Y) * pCamera.viewingDistance / distance) + Window.getSize().y / 2
+	};
+
+	return translation;
+}
 
 
 
 GraphicsEngine::GraphicsEngine(int WIDTH, int HEIGHT) {
-	window.create(sf::VideoMode(WIDTH, HEIGHT), "Meridian Engine");
+	Window.create(sf::VideoMode(WIDTH, HEIGHT), "Yggdrasil Engine");
 }
 
 
-void GraphicsEngine::Render() {
+void GraphicsEngine::PollEvents() {
+	sf::Event events;
 
-	sf::Event event;
-	while (window.pollEvent(event)) {
-		if (event.type == sf::Event::Closed) {
-			window.close();
+	while (Window.pollEvent(events)) {
+		if (events.type == sf::Event::Closed) {
+			Window.close();
 		}
 	}
+}
 
-	window.clear({ 0,0,0 });
 
-	// Seeing how vertices work and how I could use them to draw in-scene over using sf::Shapes
-	sf::VertexArray triangle(sf::Triangles, 3);
-	triangle[0].position = sf::Vector2f(200, 500);
-	triangle[0].color = sf::Color::Red;
+void GraphicsEngine::ClearWindow() {
+	Window.clear({ 0, 0, 0 });
+}
 
-	triangle[1].position = sf::Vector2f(500, 500);
-	triangle[1].color = sf::Color::Green;
+void GraphicsEngine::Draw(const sf::Drawable &drawable) {
+	Window.draw(drawable);
+}
 
-	triangle[2].position = sf::Vector2f(700, 700);
-	triangle[2].color = sf::Color::Blue;
-
-	window.draw(triangle);
-
-	window.display();
+void GraphicsEngine::DisplayWindow() {
+	Window.display();
 }

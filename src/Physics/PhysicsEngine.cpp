@@ -12,11 +12,12 @@ PhysicsEngine::PhysicsEngine(GraphicsEngine& graphicsPoint) : graphics(&graphics
 void PhysicsEngine::Simulate() {
 	sf::Clock FPS;
 
-	// For future plane rendering, but for now it's just used to test Point3D and Vector3D.
+	srand(time(NULL));
+
 	QuadPlane testPlane;
 
 	// Main simulation logic
-	while (graphics->window.isOpen()) {
+	while (graphics->Window.isOpen()) {
 
 		int deltaTime = FPS.getElapsedTime().asMilliseconds();
 
@@ -24,9 +25,20 @@ void PhysicsEngine::Simulate() {
 			continue;
 		}
 
+		// Simulate
 		testPlane.Simulate();
-		
-		graphics->Render();
+		graphics->pCamera.Simulate();
+
+		// Start of Rendering
+		graphics->PollEvents();
+		graphics->ClearWindow();
+
+		// Object Rendering
+		testPlane.Render(*graphics);
+
+		// Display everything
+		graphics->DisplayWindow();
+
 		FPS.restart();
 	}
 }

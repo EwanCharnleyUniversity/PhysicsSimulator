@@ -14,8 +14,6 @@ public:
 
 private:
 	GraphicsEngine* graphics;
-	double TIME = 1.0;
-
 };
 
 

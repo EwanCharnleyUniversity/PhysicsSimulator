@@ -1,13 +1,22 @@
 #ifndef QUAD_PLANE_CLASS_HPP
 #define QUAD_PLANE_CLASS_HPP
 
+#include "Objects.h"
 
 
-class QuadPlane {
+struct Point3D;
+
+
+class QuadPlane : public Objects {
 public:
 	QuadPlane();
 
-	void Simulate();
+	virtual void Simulate();
+	virtual void Render(GraphicsEngine& graphics);
+
+private:
+	Point3D* velocity;
+	Point3D* vertices[4];
 };
 
 

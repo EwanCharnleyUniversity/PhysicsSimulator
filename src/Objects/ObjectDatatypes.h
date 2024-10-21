@@ -5,8 +5,10 @@
 
 // A point is just that, a 3D position in worldspace. It isn't a vector itself.
 struct Point3D {
-	
-	double X, Y, Z;
+	double X{ 0 }, Y{ 0 }, Z{ 0 };
+
+	void randomPosition();
+	void PrintCoordinates();
 
 	// Basic Operators
 	// Point3D o=    this .o. Vector3D
@@ -77,16 +79,17 @@ struct Point3D {
 
 
 // Vectors are the product of a tail point and head point. This can then be used to calculate things such as magnitudes, dot products, etc.
-struct Vector3D {
-	Point3D Vector;
+struct Vector3D : Point3D {
 
-	Vector3D(Point3D head, Point3D tail) : Vector(tail - head) { }
+	Vector3D(Point3D head, Point3D tail) {
+		X = tail.X - head.X;
+		Y = tail.Y - head.Y;
+		Z = tail.Z - head.Z;
+	}
 
 	double VectorMagnitude();
 	double VectorDotProduct(Vector3D input);
 	double findAngleBetweenVectors(Vector3D input);
-
-	void PrintVector();
 };
 
 
