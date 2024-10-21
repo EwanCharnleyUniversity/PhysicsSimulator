@@ -135,10 +135,13 @@
   <ItemGroup>
     <ClCompile Include="src\Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Objects\QuadPlane.cpp" />
     <ClCompile Include="src\Physics\PhysicsEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Graphics\GraphicsEngine.h" />
+    <ClInclude Include="src\Objects\ObjectDatatypes.h" />
+    <ClInclude Include="src\Objects\QuadPlane.h" />
     <ClInclude Include="src\Physics\PhysicsEngine.h" />
   </ItemGroup>
   <ItemGroup>

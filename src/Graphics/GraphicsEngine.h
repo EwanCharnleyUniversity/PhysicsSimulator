@@ -2,7 +2,6 @@
 #ifndef GRAPHICS_ENGINE_CLASS_HPP
 #define GRAPHICS_ENGINE_CLASS_HPP
 
-
 #include "SFML/Graphics.hpp"
 
 
@@ -13,9 +12,6 @@ public:
 	GraphicsEngine(int WIDTH, int HEIGHT);
 
 	void Render();
-
-private:
-
 };
 
 
