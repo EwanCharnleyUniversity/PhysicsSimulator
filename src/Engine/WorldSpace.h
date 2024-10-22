@@ -4,7 +4,6 @@
 
 #include "SFML/Graphics.hpp"
 
-#include "../Objects/ObjectDatatypes.h"
 #include "WorldSpaceDatatypes.h"
 
 
@@ -12,10 +11,10 @@
 class Camera {
 public:
 	sf::RenderWindow window;
-	ObjectDatatype::Vector3D cameraPosition;
+	float cameraZ = 0;
 
 	Camera() {}
-	Camera(int _inputWidth, int _inputHeight, float x, float y, float z);
+	Camera(int _inputWidth, int _inputHeight, float z);
 
 	void Render(worldContainers* Objects);
 

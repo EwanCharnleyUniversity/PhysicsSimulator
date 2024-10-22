@@ -24,7 +24,7 @@ WorldSpace::WorldSpace() {
 	worldObjects.worldParticles.push_back({ objectID++, 25.0f, { 500.0f, 0.0f, 0.0f}, { 0.0f, 0.0f, 0.0f}, false });
 
 
-	Camera camera(WIDTH, HEIGHT, 0, 0, -250.0f);
+	Camera camera(WIDTH, HEIGHT, -250.0f);
 	
 	float CLOCK = 0;
 	int FPS = 0;

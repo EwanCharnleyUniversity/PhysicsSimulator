@@ -1,4 +1,8 @@
-﻿  ObjectDatatypes.h
+﻿  Camera.cpp
+  WorldSpace.cpp
+  main.cpp
+  WorldSpaceParticle.cpp
+  Generating Code...
 WorldSpace.obj : error LNK2005: "struct ObjectDatatype::Vector3D __cdecl ObjectDatatype::operator*(struct ObjectDatatype::Vector3D,float const &)" (??DObjectDatatype@@YA?AUVector3D@0@U10@AEBM@Z) already defined in Camera.obj
 WorldSpace.obj : error LNK2005: "struct ObjectDatatype::Vector3D __cdecl ObjectDatatype::operator*(struct ObjectDatatype::Vector3D,struct ObjectDatatype::Vector3D const &)" (??DObjectDatatype@@YA?AUVector3D@0@U10@AEBU10@@Z) already defined in Camera.obj
 WorldSpace.obj : error LNK2005: "struct ObjectDatatype::Vector3D __cdecl ObjectDatatype::operator-(struct ObjectDatatype::Vector3D,float const &)" (??GObjectDatatype@@YA?AUVector3D@0@U10@AEBM@Z) already defined in Camera.obj

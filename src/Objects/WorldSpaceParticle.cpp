@@ -49,9 +49,9 @@ WorldSpaceParticle::WorldSpaceParticle(int _id, float _inputWidth, Vector3D inpu
 }
 
 
-void WorldSpaceParticle::Render(sf::RenderTarget* window, Vector3D cameraPosition, float viewingDistance) {
+void WorldSpaceParticle::Render(sf::RenderTarget* window, float cameraZ, float viewingDistance) {
 	
-	float distance = particlePosition.Z - cameraPosition.Z;
+	float distance = particlePosition.Z - cameraZ;
 
 	if (distance <= 0)
 		return;
@@ -63,8 +63,8 @@ void WorldSpaceParticle::Render(sf::RenderTarget* window, Vector3D cameraPositio
 	particleShape.setOrigin(RENDER_RADIUS, RENDER_RADIUS);
 
 	particleShape.setPosition(
-		((particlePosition.X - cameraPosition.X) * viewingDistance / distance) + window->getSize().x / 2,
-		((particlePosition.Y - cameraPosition.Y) * viewingDistance / distance) * -1 + window->getSize().y / 2
+		(particlePosition.X * viewingDistance / distance) + window->getSize().x / 2,
+		(particlePosition.Y * viewingDistance / distance) * -1 + window->getSize().y / 2
 	);
 
 	window->draw(particleShape);
@@ -76,7 +76,7 @@ float squared(float input) {
 }
 
 
-void WorldSpaceParticle::Simulate(sf::RenderTarget* window, Vector3D cameraPosition,
+void WorldSpaceParticle::Simulate(sf::RenderTarget* window, float cameraZ,
 										float viewingDistance, std::vector<WorldSpaceParticle>* objects	)
 {
 	bool hasCollided = false;
@@ -133,13 +133,13 @@ void WorldSpaceParticle::Simulate(sf::RenderTarget* window, Vector3D cameraPosit
 			collisionPointVector += particlePosition;
 
 
-			float distance = collisionPointVector.Z - cameraPosition.Z;
+			float distance = collisionPointVector.Z - cameraZ;
 
 			sf::Vertex toPoint[] = {
 				sf::Vertex(particleShape.getPosition(), {255,255,255,255}),
 				sf::Vertex({
-					((collisionPointVector.X - cameraPosition.X) * viewingDistance / distance) + window->getSize().x / 2,
-					((collisionPointVector.Y - cameraPosition.Y) * viewingDistance / distance) + window->getSize().y / 2}, {0,0,255,255}
+					(collisionPointVector.X * viewingDistance / distance) + window->getSize().x / 2,
+					(collisionPointVector.Y * viewingDistance / distance) + window->getSize().y / 2}, {0,0,255,255}
 				),
 			};
 
