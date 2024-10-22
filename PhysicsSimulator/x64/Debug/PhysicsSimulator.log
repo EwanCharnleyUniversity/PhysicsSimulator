@@ -1,6 +1,5 @@
-﻿  GraphicsEngine.cpp
-C:\Users\PC\Documents\Work Projects, Portfolio\Work Projects\PhysicsSimulator\src\Graphics\GraphicsEngine.cpp(27,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  PhysicsEngine.cpp
-C:\Users\PC\Documents\Work Projects, Portfolio\Work Projects\PhysicsSimulator\src\Physics\PhysicsEngine.cpp(15,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
+﻿  main.cpp
+C:\Users\PC\Documents\Work Projects, Portfolio\Work Projects\PhysicsSimulator\src\main.cpp(118,29): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\PC\Documents\Work Projects, Portfolio\Work Projects\PhysicsSimulator\src\main.cpp(118,22): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\PC\Documents\Work Projects, Portfolio\Work Projects\PhysicsSimulator\src\main.cpp(118,15): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
   PhysicsSimulator.vcxproj -> C:\Users\PC\Documents\Work Projects, Portfolio\Work Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe

@@ -104,13 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>Libraries\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Libraries\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>Libraries\lib;C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Libraries\bin</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -121,7 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>Libraries\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Libraries\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,25 +129,25 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>Libraries\lib;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Graphics\GraphicsEngine.cpp" />
+    <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Objects\ObjectDatatypes.cpp" />
-    <ClCompile Include="src\Objects\QuadPlane.cpp" />
-    <ClCompile Include="src\Physics\PhysicsEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Graphics\GraphicsEngine.h" />
-    <ClInclude Include="src\Objects\ObjectDatatypes.h" />
-    <ClInclude Include="src\Objects\Objects.h" />
-    <ClInclude Include="src\Objects\QuadPlane.h" />
-    <ClInclude Include="src\Physics\PhysicsEngine.h" />
+    <Text Include="src\!Legacy_SFML\README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="src\README.txt" />
+    <Library Include="Libraries\lib\glfw3.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Libraries\include\glad\glad.h" />
+    <ClInclude Include="Libraries\include\GLFW\glfw3.h" />
+    <ClInclude Include="Libraries\include\GLFW\glfw3native.h" />
+    <ClInclude Include="Libraries\include\KHR\khrplatform.h" />
+    <ClInclude Include="src\Graphics\Buffers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
