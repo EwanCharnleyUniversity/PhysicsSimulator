@@ -7,74 +7,31 @@
 struct Point3D {
 	double X{ 0 }, Y{ 0 }, Z{ 0 };
 
-	void randomPosition();
+	void Randomise(const double WEIGHT);
 	void PrintCoordinates();
 
-	// Basic Operators
-	// Point3D o=    this .o. Vector3D
-	Point3D operator +(const Point3D& rhs) {
-		X += rhs.X;
-		Y += rhs.Y;
-		Z += rhs.Z;
 
-		return *this;
-	}
+	Point3D operator +(const Point3D& rhs);
+	Point3D operator -(const Point3D& rhs);
+	Point3D operator *(const Point3D& rhs);
+	Point3D operator /(const Point3D& rhs);
 
-	Point3D operator -(const Point3D& rhs) {
-		X -= rhs.X;
-		Y -= rhs.Y;
-		Z -= rhs.Z;
+	Point3D operator +=(const Point3D& rhs);
+	Point3D operator -=(const Point3D& rhs);
+	Point3D operator *=(const Point3D& rhs);
+	Point3D operator /=(const Point3D& rhs);
 
-		return *this;
-	}
+	template <typename T>
+	Point3D operator +(const T& rhs);
 
-	Point3D operator *(const Point3D& rhs) {
-		X *= rhs.X;
-		Y *= rhs.Y;
-		Z *= rhs.Z;
+	template <typename T>
+	Point3D operator -(const T& rhs);
 
-		return *this;
-	}
+	template <typename T>
+	Point3D operator *(const T& rhs);
 
-	Point3D operator /(const Point3D& rhs) {
-		X /= rhs.X;
-		Y /= rhs.Y;
-		Z /= rhs.Z;
-
-		return *this;
-	}
-
-	Point3D operator +=(const Point3D& rhs) {
-		X += rhs.X;
-		Y += rhs.Y;
-		Z += rhs.Z;
-
-		return *this;
-	}
-
-	Point3D operator -=(const Point3D& rhs) {
-		X -= rhs.X;
-		Y -= rhs.Y;
-		Z -= rhs.Z;
-
-		return *this;
-	}
-
-	Point3D operator *=(const Point3D& rhs) {
-		X *= rhs.X;
-		Y *= rhs.Y;
-		Z *= rhs.Z;
-
-		return *this;
-	}
-
-	Point3D operator /=(const Point3D& rhs) {
-		X /= rhs.X;
-		Y /= rhs.Y;
-		Z /= rhs.Z;
-
-		return *this;
-	}
+	template <typename T>
+	Point3D operator /(const T& rhs);
 };
 
 

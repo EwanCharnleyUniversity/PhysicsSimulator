@@ -14,26 +14,28 @@ double DoubleSquared(double input) {
 // 3D POINT FUNCTIONS //
 ////////////////////////
 
-int WEIGHT = 1000;
 
-void Point3D::randomPosition() {
-	X = (rand() % WEIGHT) - WEIGHT / 2;
-	Y = (rand() % WEIGHT) - WEIGHT / 2;
-	Z = (rand() % WEIGHT) - WEIGHT / 2;
+// Takes a Weight modifier and calculates a double result with low degrees for fairly minute differences in randomised output.
+void Point3D::Randomise(const double WEIGHT) {
+	X = (static_cast<double>(rand()) / static_cast<double>(RAND_MAX / WEIGHT)) - WEIGHT / 2;
+	Y = (static_cast<double>(rand()) / static_cast<double>(RAND_MAX / WEIGHT)) - WEIGHT / 2;
+	Z = (static_cast<double>(rand()) / static_cast<double>(RAND_MAX / WEIGHT)) - WEIGHT / 2;
+
 }
+
 
 void Point3D::PrintCoordinates() {
 	std::cout
-		<< "X: " << this->X
-		<< ", Y: " << this->Y
-		<< ", Z: " << this->Z
-		<< std::endl;
+	<< "X: " << this->X
+	<< ", Y: " << this->Y
+	<< ", Z: " << this->Z
+	<< std::endl;
 }
 
 
-///////////////////////
-// VECTOR OPERATIONS //
-///////////////////////
+//////////////////////////
+// 3D VECTOR OPERATIONS //
+//////////////////////////
 
 
 // Magnitude of vector |x|

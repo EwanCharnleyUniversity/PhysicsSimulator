@@ -4,6 +4,9 @@
 
 class GraphicsEngine;
 
+struct Point3D;
+struct Vector3D;
+
 
 class Objects {
 public:

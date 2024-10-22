@@ -10,13 +10,17 @@
 
 QuadPlane::QuadPlane() {
 
+	Point3D random3D{ 1,1,1 };
+	random3D.Randomise(500);
+
 	velocity = new Point3D{ 0,0,0 };
+	normal = new Vector3D{ {0,0,0} , random3D };
 
 	// Assign random vertice positions to the Plane
 	for (int i = 0; i < 4; i++) {
 
 		vertices[i] = new Point3D;
-		vertices[i]->randomPosition();
+		vertices[i]->Randomise(1000);
 		vertices[i]->PrintCoordinates();
 	}
 }
@@ -35,19 +39,17 @@ void QuadPlane::Simulate() {
 
 void QuadPlane::Render(GraphicsEngine& graphics) {
 
+	// Generates a Quad from the translated positions of each point
 	sf::VertexArray Quad(sf::Quads, 4);
-
 	for (int i = 0; i < 4; i++) {
 		Quad[i].position = graphics.WindowTranslation(vertices[i]);
 
-		// If the Vertex position is behind the camera, we set its position to 0 and alpha to 0
-		if (graphics.IsPositionBehind(vertices[i]->Z)) {
-			
-			Point3D TempPoint{ vertices[i]->X,vertices[i]->Y,vertices[i]->Z };
-			TempPoint.Z = graphics.pCamera.position->Z + graphics.pCamera.viewingDistance;
+		// If the Vertex position is behind the camera
+		if (graphics.IsPositionBehind(vertices[i])) {
 
-			Quad[i].position = graphics.WindowTranslation(&TempPoint);
-			Quad[i].color.a = 0;
+			Point3D culledPoint{ vertices[i]->X,vertices[i]->Y,vertices[i]->Z };
+			Quad[i].position = graphics.WindowCull(&culledPoint);
+
 			continue;
 		}
 		else {

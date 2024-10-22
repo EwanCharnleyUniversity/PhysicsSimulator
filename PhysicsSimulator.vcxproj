@@ -136,6 +136,8 @@
     <ClCompile Include="src\Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Objects\ObjectDatatypes.cpp" />
+    <ClCompile Include="src\Objects\Operators.cpp" />
+    <ClCompile Include="src\Objects\Particle.cpp" />
     <ClCompile Include="src\Objects\QuadPlane.cpp" />
     <ClCompile Include="src\Physics\PhysicsEngine.cpp" />
   </ItemGroup>
@@ -143,6 +145,7 @@
     <ClInclude Include="src\Graphics\GraphicsEngine.h" />
     <ClInclude Include="src\Objects\ObjectDatatypes.h" />
     <ClInclude Include="src\Objects\Objects.h" />
+    <ClInclude Include="src\Objects\Particle.h" />
     <ClInclude Include="src\Objects\QuadPlane.h" />
     <ClInclude Include="src\Physics\PhysicsEngine.h" />
   </ItemGroup>

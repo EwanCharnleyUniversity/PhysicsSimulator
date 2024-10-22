@@ -4,8 +4,6 @@
 #include "Objects.h"
 
 
-struct Point3D;
-
 
 class QuadPlane : public Objects {
 public:
@@ -16,6 +14,7 @@ public:
 
 private:
 	Point3D* velocity;
+	Vector3D* normal;
 	Point3D* vertices[4];
 };
 

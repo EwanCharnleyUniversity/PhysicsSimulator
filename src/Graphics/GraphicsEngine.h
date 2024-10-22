@@ -13,15 +13,16 @@ public:
 	Camera();
 	void Simulate();
 
-	double viewingDistance = 100.0;
 	Point3D* position;
+	double viewingDistance = 0;
 };
 
 
 class GraphicsEngine {
-public:
+public: 
 	sf::RenderWindow Window;
 	Camera pCamera;
+
 
 	GraphicsEngine(int WIDTH, int HEIGHT);
 	
@@ -34,8 +35,9 @@ public:
 	void DisplayWindow();
 
 	// Transformations
-	bool IsPositionBehind(double point);
+	bool IsPositionBehind(Point3D* point);
 	sf::Vector2f WindowTranslation(Point3D* point);
+	sf::Vector2f WindowCull(Point3D* point);
 };
 
 

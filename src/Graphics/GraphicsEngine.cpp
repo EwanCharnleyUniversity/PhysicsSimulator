@@ -7,25 +7,39 @@
 
 
 Camera::Camera() {
-	position = new Point3D{ 0,0,-250.0 };
-}
-
-void Camera::Simulate() {
-	//position->Z += -1;
+	position = new Point3D{ 0, 0, -500 };
+	viewingDistance = 250;
 }
 
 
-bool GraphicsEngine::IsPositionBehind(double pointZ) {
-	if (pCamera.position->Z - pointZ <= 0)
-		return false;
+void Camera::Simulate() {}
 
-	return true;
+
+
+/////////////////////
+// GRAPHICS ENGINE //
+/////////////////////
+
+GraphicsEngine::GraphicsEngine(int WIDTH, int HEIGHT) {
+	Window.create(sf::VideoMode(WIDTH, HEIGHT), "Yggdrasil Engine");
 }
 
 
+// Checks if the point is behind the camera.
+bool GraphicsEngine::IsPositionBehind(Point3D* point) {
+	if (point->Z - pCamera.position->Z <= 0)
+		return true;
+
+	return false;
+}
+
+
+// Takes the distance from the camer and the position point and translates it to 3D rendering
 sf::Vector2f GraphicsEngine::WindowTranslation(Point3D* point) {
-	float distance = pCamera.position->Z - point->Z;
+	
+	float distance = point->Z - pCamera.position->Z;
 
+	// PointPos = P * vD / P
 	sf::Vector2f translation{
 		(float)((point->X - pCamera.position->X) * pCamera.viewingDistance / distance) + Window.getSize().x / 2,
 		(float)((point->Y - pCamera.position->Y) * pCamera.viewingDistance / distance) + Window.getSize().y / 2
@@ -35,10 +49,19 @@ sf::Vector2f GraphicsEngine::WindowTranslation(Point3D* point) {
 }
 
 
+// Culls points that shouldn't be rendered, but are connected to visible points and thus still need to represent solid surfaces.
+// Currently isn't functional.
+sf::Vector2f GraphicsEngine::WindowCull(Point3D* point) {
+	
 
-GraphicsEngine::GraphicsEngine(int WIDTH, int HEIGHT) {
-	Window.create(sf::VideoMode(WIDTH, HEIGHT), "Yggdrasil Engine");
+	sf::Vector2f culled{
+		(float)point->X,
+		(float)point->Y
+	};
+
+	return culled;
 }
+
 
 
 void GraphicsEngine::PollEvents() {
