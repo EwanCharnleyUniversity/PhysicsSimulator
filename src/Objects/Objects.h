@@ -4,14 +4,14 @@
 
 class GraphicsEngine;
 
-struct Point3D;
+struct Vector3D;
 struct Vector3D;
 
 
 class Objects {
 public:
-	virtual void Render(GraphicsEngine& graphics) {}
 	virtual void Simulate() {}
+	virtual void Render(GraphicsEngine& graphics) {}
 };
 
 

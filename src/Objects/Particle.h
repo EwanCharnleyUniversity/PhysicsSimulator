@@ -15,8 +15,8 @@ public:
 private:
 	bool isStatic;
 	float TRUE_RADIUS = 0.f;
-	Point3D* position;
-	Point3D* velocity;
+	Vector3D* position;
+	Vector3D* velocity;
 };
 
 

@@ -3,9 +3,11 @@
 #include <vector>
 
 #include "PhysicsEngine.h"
+#include "../CommonDatatypes.h"
 #include "../Graphics/GraphicsEngine.h"
 #include "../Objects/QuadPlane.h"
 #include "../Objects/Particle.h"
+
 
 static int ParticleCount = 2500;
 
@@ -14,8 +16,13 @@ PhysicsEngine::PhysicsEngine(GraphicsEngine& graphicsPoint) : graphics(&graphics
 
 
 void PhysicsEngine::Simulate() {
+
 	sf::Clock FPS;
+	float clock = 0.f;
 	srand(time(NULL));
+
+
+	QuadPlane testPlane;
 
 	// Particle vector for storing particles
 	std::vector<Particle> particleVector;
@@ -24,7 +31,7 @@ void PhysicsEngine::Simulate() {
 	}
 
 
-	// Main simulation logic
+	// Main simulation loop
 	while (graphics->Window.isOpen()) {
 
 		// Sixty Frames Per Second
@@ -33,18 +40,22 @@ void PhysicsEngine::Simulate() {
 			continue;
 		}
 
+		clock += 0.025f;
+
+
 		// Simulate things
 		for (int i = 0; i < particleVector.size(); i++) {
 			particleVector[i].Simulate();
 		}
-		graphics->pCamera.Simulate();
+		testPlane.Simulate();
+		graphics->pCamera.Simulate(clock);
 
-
-		// Start of Rendering
+		// Polling and Clearing
 		graphics->PollEvents();
 		graphics->ClearWindow();
 
 		// Object Rendering
+		testPlane.Render(*graphics);
 		for (int i = 0; i < particleVector.size(); i++) {
 			particleVector[i].Render(*graphics);
 		}

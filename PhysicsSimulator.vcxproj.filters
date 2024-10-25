@@ -27,13 +27,10 @@
     <ClCompile Include="src\Objects\QuadPlane.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Objects\ObjectDatatypes.cpp">
+    <ClCompile Include="src\CommonDatatypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Objects\Particle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Objects\Operators.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +41,7 @@
     <ClInclude Include="src\Graphics\GraphicsEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Objects\ObjectDatatypes.h">
+    <ClInclude Include="src\CommonDatatypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\QuadPlane.h">
@@ -54,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\Particle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\GraphicDatatypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

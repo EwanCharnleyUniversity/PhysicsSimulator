@@ -13,9 +13,9 @@ public:
 	virtual void Render(GraphicsEngine& graphics);
 
 private:
-	Point3D* velocity;
+	Vector3D* velocity;
 	Vector3D* normal;
-	Point3D* vertices[4];
+	Vector3D* vertices[4];
 };
 
 

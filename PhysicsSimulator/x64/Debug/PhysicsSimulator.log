@@ -1,3 +1,8 @@
 ﻿  GraphicsEngine.cpp
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\src\Graphics\GraphicsEngine.cpp(44,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Particle.cpp
+  QuadPlane.cpp
+  PhysicsEngine.cpp
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\src\Physics\PhysicsEngine.cpp(22,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  main.cpp
+  Generating Code...
   PhysicsSimulator.vcxproj -> C:\Users\A0096607\Documents\Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe

@@ -135,15 +135,15 @@
   <ItemGroup>
     <ClCompile Include="src\Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Objects\ObjectDatatypes.cpp" />
-    <ClCompile Include="src\Objects\Operators.cpp" />
+    <ClCompile Include="src\CommonDatatypes.cpp" />
     <ClCompile Include="src\Objects\Particle.cpp" />
     <ClCompile Include="src\Objects\QuadPlane.cpp" />
     <ClCompile Include="src\Physics\PhysicsEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Graphics\GraphicDatatypes.h" />
     <ClInclude Include="src\Graphics\GraphicsEngine.h" />
-    <ClInclude Include="src\Objects\ObjectDatatypes.h" />
+    <ClInclude Include="src\CommonDatatypes.h" />
     <ClInclude Include="src\Objects\Objects.h" />
     <ClInclude Include="src\Objects\Particle.h" />
     <ClInclude Include="src\Objects\QuadPlane.h" />

@@ -5,15 +5,15 @@
 #include "SFML/Graphics.hpp"
 
 
-struct Point3D;
+struct Vector3D;
 
 
 class Camera {
 public:
 	Camera();
-	void Simulate();
+	void Simulate(float time);
 
-	Point3D* position;
+	Vector3D* position;
 	double viewingDistance = 0;
 };
 
@@ -35,9 +35,9 @@ public:
 	void DisplayWindow();
 
 	// Transformations
-	bool IsPositionBehind(Point3D* point);
-	sf::Vector2f WindowTranslation(Point3D* point);
-	sf::Vector2f WindowCull(Point3D* point);
+	bool IsPositionBehind(Vector3D* point);
+	sf::Vector2f WindowTranslation(Vector3D* point);
+	sf::Vector2f WindowClip(Vector3D* point);
 };
 
 
