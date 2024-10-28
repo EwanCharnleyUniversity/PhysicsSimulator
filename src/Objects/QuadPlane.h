@@ -9,13 +9,14 @@ class QuadPlane : public Objects {
 public:
 	QuadPlane();
 
-	virtual void Simulate();
+	virtual void Simulate(float time);
 	virtual void Render(GraphicsEngine& graphics);
 
 private:
+	Model* baseModel;
+
 	Vector3D* velocity;
 	Vector3D* normal;
-	Vector3D* vertices[4];
 };
 
 

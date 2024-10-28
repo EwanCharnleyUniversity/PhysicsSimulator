@@ -5,7 +5,7 @@
 class GraphicsEngine;
 
 struct Vector3D;
-struct Vector3D;
+struct Model;
 
 
 class Objects {

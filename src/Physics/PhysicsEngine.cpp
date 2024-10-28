@@ -21,7 +21,6 @@ void PhysicsEngine::Simulate() {
 	float clock = 0.f;
 	srand(time(NULL));
 
-
 	QuadPlane testPlane;
 
 	// Particle vector for storing particles
@@ -44,10 +43,11 @@ void PhysicsEngine::Simulate() {
 
 
 		// Simulate things
-		for (int i = 0; i < particleVector.size(); i++) {
-			particleVector[i].Simulate();
-		}
-		testPlane.Simulate();
+		//for (int i = 0; i < particleVector.size(); i++) {
+		//	particleVector[i].Simulate();
+		//}
+
+		testPlane.Simulate(clock);
 		graphics->pCamera.Simulate(clock);
 
 		// Polling and Clearing
@@ -56,9 +56,10 @@ void PhysicsEngine::Simulate() {
 
 		// Object Rendering
 		testPlane.Render(*graphics);
-		for (int i = 0; i < particleVector.size(); i++) {
-			particleVector[i].Render(*graphics);
-		}
+		
+		//for (int i = 0; i < particleVector.size(); i++) {
+		//	particleVector[i].Render(*graphics);
+		//}
 
 		// Display everything
 		graphics->DisplayWindow();

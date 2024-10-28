@@ -15,7 +15,7 @@ Camera::Camera() {
 
 // Rocks Camera back and forth
 void Camera::Simulate(float time) {
-	position->Z = -500 + ( - 250 * (sin(time) - sin(time) / 2));
+	//position->Z = -500 + ( - 250 * (sin(time) - sin(time) / 2));
 }
 
 
