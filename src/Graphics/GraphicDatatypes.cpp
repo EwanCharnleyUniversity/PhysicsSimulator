@@ -1,6 +1,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "../CommonDatatypes.h"
+
 #include "GraphicDatatypes.h"
 #include "GraphicsEngine.h"
 #include "vector"
@@ -9,16 +11,19 @@
 
 
 Model::Model() {
+	originPoint = new Vector3D{ 0.,0.,0. };
+
 	// Hard coded Cube (for now)
 	vertices.insert(vertices.end(), {
-		{-250,-250,-250},
-		{ 250,-250,-250},
-		{ 250, 250,-250},
-		{-250, 250,-250},
-		{-250,-250, 250},
-		{ 250,-250, 250},
-		{ 250, 250, 250},
-		{-250, 250, 250}
+		new Vector3D{ -250,-250,-250 },
+		new Vector3D{  250,-250,-250 },
+		new Vector3D{  250, 250,-250 },
+		new Vector3D{ -250, 250,-250 },
+
+		new Vector3D{ -250,-250, 250 },
+		new Vector3D{  250,-250, 250 },
+		new Vector3D{  250, 250, 250 },
+		new Vector3D{ -250, 250, 250 }
 	});
 
 
@@ -41,7 +46,7 @@ void Model::Display(GraphicsEngine& graphics) {
 
 	// Vertex Points
 	for (int i = 0; i < vertices.size(); i++) {
-		Vector3D newPosition = vertices[i] + originPoint;
+		Vector3D newPosition = *vertices[i] + *originPoint;
 
 		points.append(graphics.WindowTranslation(&newPosition));
 		points[i].color = { 0,255,0,255 };
@@ -49,7 +54,7 @@ void Model::Display(GraphicsEngine& graphics) {
 
 	// Element Triangles
 	for (int i = 0; i < elements.size(); i++) {
-		Vector3D elementRef = vertices[elements[i]] + originPoint;
+		Vector3D elementRef = *vertices[elements[i]] + *originPoint;
 		tris.append(graphics.WindowTranslation(&elementRef));
 		tris[i].color = { 255,255,255,255 };
 	}

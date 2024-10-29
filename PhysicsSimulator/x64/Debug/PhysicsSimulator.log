@@ -1,2 +1,42 @@
-﻿  QuadPlane.cpp
-  PhysicsSimulator.vcxproj -> C:\Users\A0096607\Documents\Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe
+﻿  GraphicDatatypes.cpp
+GraphicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator*(struct Vector3D &,double const &)" (??D@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+GraphicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator*(struct Vector3D &,struct Vector3D const &)" (??D@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+GraphicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator-(struct Vector3D &,double const &)" (??G@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+GraphicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator-(struct Vector3D &,struct Vector3D const &)" (??G@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+GraphicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator+(struct Vector3D &,double const &)" (??H@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+GraphicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator+(struct Vector3D &,struct Vector3D const &)" (??H@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+GraphicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator/(struct Vector3D &,double const &)" (??K@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+GraphicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator/(struct Vector3D &,struct Vector3D const &)" (??K@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+CommonDatatypes.obj : error LNK2005: "struct Vector3D __cdecl operator*(struct Vector3D &,double const &)" (??D@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+CommonDatatypes.obj : error LNK2005: "struct Vector3D __cdecl operator*(struct Vector3D &,struct Vector3D const &)" (??D@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+CommonDatatypes.obj : error LNK2005: "struct Vector3D __cdecl operator-(struct Vector3D &,double const &)" (??G@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+CommonDatatypes.obj : error LNK2005: "struct Vector3D __cdecl operator-(struct Vector3D &,struct Vector3D const &)" (??G@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+CommonDatatypes.obj : error LNK2005: "struct Vector3D __cdecl operator+(struct Vector3D &,double const &)" (??H@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+CommonDatatypes.obj : error LNK2005: "struct Vector3D __cdecl operator+(struct Vector3D &,struct Vector3D const &)" (??H@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+CommonDatatypes.obj : error LNK2005: "struct Vector3D __cdecl operator/(struct Vector3D &,double const &)" (??K@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+CommonDatatypes.obj : error LNK2005: "struct Vector3D __cdecl operator/(struct Vector3D &,struct Vector3D const &)" (??K@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+Particle.obj : error LNK2005: "struct Vector3D __cdecl operator*(struct Vector3D &,double const &)" (??D@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+Particle.obj : error LNK2005: "struct Vector3D __cdecl operator*(struct Vector3D &,struct Vector3D const &)" (??D@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+Particle.obj : error LNK2005: "struct Vector3D __cdecl operator-(struct Vector3D &,double const &)" (??G@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+Particle.obj : error LNK2005: "struct Vector3D __cdecl operator-(struct Vector3D &,struct Vector3D const &)" (??G@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+Particle.obj : error LNK2005: "struct Vector3D __cdecl operator+(struct Vector3D &,double const &)" (??H@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+Particle.obj : error LNK2005: "struct Vector3D __cdecl operator+(struct Vector3D &,struct Vector3D const &)" (??H@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+Particle.obj : error LNK2005: "struct Vector3D __cdecl operator/(struct Vector3D &,double const &)" (??K@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+Particle.obj : error LNK2005: "struct Vector3D __cdecl operator/(struct Vector3D &,struct Vector3D const &)" (??K@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+QuadPlane.obj : error LNK2005: "struct Vector3D __cdecl operator*(struct Vector3D &,double const &)" (??D@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+QuadPlane.obj : error LNK2005: "struct Vector3D __cdecl operator*(struct Vector3D &,struct Vector3D const &)" (??D@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+QuadPlane.obj : error LNK2005: "struct Vector3D __cdecl operator-(struct Vector3D &,double const &)" (??G@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+QuadPlane.obj : error LNK2005: "struct Vector3D __cdecl operator-(struct Vector3D &,struct Vector3D const &)" (??G@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+QuadPlane.obj : error LNK2005: "struct Vector3D __cdecl operator+(struct Vector3D &,double const &)" (??H@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+QuadPlane.obj : error LNK2005: "struct Vector3D __cdecl operator+(struct Vector3D &,struct Vector3D const &)" (??H@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+QuadPlane.obj : error LNK2005: "struct Vector3D __cdecl operator/(struct Vector3D &,double const &)" (??K@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+QuadPlane.obj : error LNK2005: "struct Vector3D __cdecl operator/(struct Vector3D &,struct Vector3D const &)" (??K@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+PhysicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator*(struct Vector3D &,double const &)" (??D@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+PhysicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator*(struct Vector3D &,struct Vector3D const &)" (??D@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+PhysicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator-(struct Vector3D &,double const &)" (??G@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+PhysicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator-(struct Vector3D &,struct Vector3D const &)" (??G@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+PhysicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator+(struct Vector3D &,double const &)" (??H@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+PhysicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator+(struct Vector3D &,struct Vector3D const &)" (??H@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+PhysicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator/(struct Vector3D &,double const &)" (??K@YA?AUVector3D@@AEAU0@AEBN@Z) already defined in GraphicDatatypes.obj
+PhysicsEngine.obj : error LNK2005: "struct Vector3D __cdecl operator/(struct Vector3D &,struct Vector3D const &)" (??K@YA?AUVector3D@@AEAU0@AEBU0@@Z) already defined in GraphicDatatypes.obj
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe : fatal error LNK1169: one or more multiply defined symbols found

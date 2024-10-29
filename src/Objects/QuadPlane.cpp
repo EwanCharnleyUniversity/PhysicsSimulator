@@ -10,6 +10,7 @@
 
 
 QuadPlane::QuadPlane() {
+	position = new Vector3D{ 0,0,0 };
 	baseModel = new Model();
 
 	velocity = new Vector3D{ 0,0,0 };
@@ -18,7 +19,7 @@ QuadPlane::QuadPlane() {
 
 void QuadPlane::Simulate(float time) {
 
-	baseModel->originPoint.Z = 5 * cos(time) - 5;
+	baseModel->originPoint->Z = cos(time);
 }
 
 

@@ -36,7 +36,7 @@ bool GraphicsEngine::IsPositionBehind(Vector3D* point) {
 	return false;
 }
 
-
+// TODO - Change up Window translation logic so that it checks for conditionals (is it behind? Is it culled?) and only load otherwise.
 // Takes the distance from the camera and the Point and translates it to 3D rendering
 sf::Vector2f GraphicsEngine::WindowTranslation(Vector3D* point) {
 	
@@ -45,7 +45,7 @@ sf::Vector2f GraphicsEngine::WindowTranslation(Vector3D* point) {
 	// PointPos = P * vD / P
 	sf::Vector2f translation{
 		(float)((point->X - pCamera.position->X) * pCamera.viewingDistance / distance) + Window.getSize().x / 2,
-		(float)((point->Y - pCamera.position->Y) * pCamera.viewingDistance / distance) * - 1 + Window.getSize().y / 2
+		(float)((point->Y - pCamera.position->Y) * pCamera.viewingDistance / distance) * -1 + Window.getSize().y / 2
 	};
 
 	return translation;
