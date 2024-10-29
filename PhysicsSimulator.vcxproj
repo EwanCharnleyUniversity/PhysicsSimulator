@@ -134,8 +134,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\glad.c" />
-    <ClCompile Include="src\Graphics\Buffers.cpp" />
+    <ClCompile Include="src\Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Physics\PhysicsEngine.cpp" />
+    <ClCompile Include="src\Shaders\Shaders.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\!Legacy_SFML\README.txt" />
@@ -148,7 +150,13 @@
     <ClInclude Include="Libraries\include\GLFW\glfw3.h" />
     <ClInclude Include="Libraries\include\GLFW\glfw3native.h" />
     <ClInclude Include="Libraries\include\KHR\khrplatform.h" />
-    <ClInclude Include="src\Graphics\Buffers.h" />
+    <ClInclude Include="src\Graphics\GraphicsEngine.h" />
+    <ClInclude Include="src\Physics\PhysicsEngine.h" />
+    <ClInclude Include="src\Shaders\Shaders.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Shaders\fragment.frag" />
+    <None Include="src\Shaders\vertex.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
