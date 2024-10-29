@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+#include "../src/Graphics/Buffers.h"
+
 
 // Shader Source Code (Vertex and Fragment)
 const char* vertexShaderSource = "#version 330 core\n"
@@ -57,15 +59,6 @@ int main(void) {
 	// Make the window our current context.
 	glfwMakeContextCurrent(window);
 
-	// Buffers
-	unsigned int VAO, VBO;
-	glGenVertexArrays(1, &VAO);
-	glBindVertexArray(VAO);
-
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
 
 	// Vertex Shader
 	unsigned int vertexShader;
@@ -110,38 +103,36 @@ int main(void) {
 	}
 
 	// Attributes of Vertexes and enable them.
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
-
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	//glEnableVertexAttribArray(0);
 
 	glClearColor(0.025, 0.025, 0.05, 0.0);
 
 	// Program Runtime
 	while (!glfwWindowShouldClose(window)) {
+		
 		vertices[0] += 0.001f;
+		vertices[3] += 0.001f;
+		vertices[4] -= 0.001f;
+		vertices[6] += 0.001f;
 
 		// Buffer inside runtime 1*
-		glGenVertexArrays(1, &VAO);
-		glBindVertexArray(VAO);
+		VAO vao;
+		Buffer vbo(0);
 
-		glGenBuffers(1, &VBO);
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+		//unsigned int VBO;
 
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-		// 1* This is necessary if we want to refresh the draw call per frame.
-		// People will mention this is BAD for performance. But I do not care, as my program needs to grab data pertaining to vertex position and what not within worldspace.
-		// Using matrix transformations, while plausible and the standard for displaying in OpenGL, needs to be parsed in shader files. Instead, I want to seperate the actual physics, position, etc of the Vertices
-		// and Objects within worldspace from the actual renderer engine.
-		
-		// This has a hit on performance but, as mentioned, I do not care - PHYSICS ACCURACY is more important, and I do not want to deal with OpenGL in any way when it comes to calculated if two things have collided or not.
-		// OpenGL is merely a visualisation tool, not the dictator of the entire project.
+		//glGenBuffers(1, &VBO);
+		//glBindBuffer(GL_ARRAY_BUFFER, VBO);
+		//glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+		vbo.Bind(vertices);
+		vao.Attribute(0, 3);
 
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glUseProgram(shaderProgram);
-		glBindVertexArray(VAO);
+		vao.Bind();
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 
 		glfwSwapBuffers(window);

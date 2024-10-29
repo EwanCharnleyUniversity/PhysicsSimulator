@@ -2,25 +2,26 @@
 #define BUFFERS_CLASS_HPP
 
 
-// Vertex Array
+// Vertex Array Object - stores the vertex data of a model, such as the vertex positions, colour, texture coords, normals, etc.
 class VAO {
+public:
 	unsigned int ID;
 
 	VAO();
-	~VAO();
 
-	void Unbind();
+	void Bind();
+	void Attribute(unsigned int index, unsigned int size);
 };
 
-// Vertex Buffer
+
+// A Buffer, contains specific data such as position. Binds into the VAO.
 class Buffer {
+public:
 	unsigned int ID;
 
-	Buffer();
-	~Buffer();
+	Buffer(unsigned int index);
 
-	virtual void Bind();
-	virtual void Unbind();
+	void Bind(float vertices[]);
 };
 
 #endif
