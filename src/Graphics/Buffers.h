@@ -2,19 +2,25 @@
 #define BUFFERS_CLASS_HPP
 
 
+// Vertex Array
+class VAO {
+	unsigned int ID;
+
+	VAO();
+	~VAO();
+
+	void Unbind();
+};
+
+// Vertex Buffer
 class Buffer {
 	unsigned int ID;
 
-	// Common functions between VAO, VBO, and EBO -
+	Buffer();
+	~Buffer();
 
-	// Generate Array	- Generates the buffer
-	// Bind Array		- Binds the buffer
-	// Buffer Data		- Creates and Initialises the buffer
+	virtual void Bind();
+	virtual void Unbind();
 };
 
-// VAO - Vertex Array Object, stores all Vertex Data (ie position, colour, texture coordinates, etc)
-
-// VBO - Vertex Buffer Object, used to store vertex position
-// EBO - Endice Buffer Object, used to store vertex indices (vastly optimises vertex drawing)
-
-#endif // !1
+#endif
