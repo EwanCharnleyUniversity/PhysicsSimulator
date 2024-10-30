@@ -40,8 +40,7 @@ GraphicsEngine::GraphicsEngine(int WIDTH, int HEIGHT, const char* TITLE) {
 		return;
 	}
 
-	VertexShader vertex;
-	FragmentShader fragment;
+	ShaderProgram Shaders("src/Shaders/vertex.vert", "src/Shaders/fragment.frag");
 }
 
 // Performs one Frame Call for Rendering

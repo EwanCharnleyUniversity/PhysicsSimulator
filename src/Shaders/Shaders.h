@@ -9,7 +9,7 @@ class VertexShader {
 public:
 	unsigned int ID;
 
-	VertexShader();
+	VertexShader(const char* filePath);
 	~VertexShader();
 };
 
@@ -20,14 +20,18 @@ class FragmentShader {
 public:
 	unsigned int ID;
 
-	FragmentShader();
+	FragmentShader(const char* filePath);
 	~FragmentShader();
 };
 
 
 // Contains both Vertex and Fragment shaders.
 class ShaderProgram {
+public:
+	VertexShader* Vertex;
+	FragmentShader* Fragment;
 
+	ShaderProgram(const char* vertexFilePath, const char* fragmentFilePath);
 };
 
 

@@ -1,2 +1,5 @@
-﻿  Shaders.cpp
-  PhysicsSimulator.vcxproj -> C:\Users\PC\Documents\Work Projects, Portfolio\Work Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe
+﻿  GraphicsEngine.cpp
+  Shaders.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  PhysicsSimulator.vcxproj -> C:\Users\A0096607\Documents\Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe
