@@ -1,4 +1,3 @@
-
 #ifndef SHADER_CLASS_HPP
 #define SHADER_CLASS_HPP
 
@@ -28,10 +27,15 @@ public:
 // Contains both Vertex and Fragment shaders.
 class ShaderProgram {
 public:
+	unsigned int ID;
+
 	VertexShader* Vertex;
 	FragmentShader* Fragment;
 
 	ShaderProgram(const char* vertexFilePath, const char* fragmentFilePath);
+	~ShaderProgram();
+
+	void Use();
 };
 
 

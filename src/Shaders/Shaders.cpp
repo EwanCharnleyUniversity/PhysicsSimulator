@@ -9,22 +9,20 @@
 
 
 // Outputs the contents of a shader file via an inputted filepath.
-const char* AccessShaderFile(const char* filepath) {
-	std::ifstream source(filepath, std::ios::in | std::ios::binary);
-	std::string stream{ "" }, line{ "" };
+std::string AccessShaderFile(const char* filepath) {
+	std::ifstream source(filepath);
+	std::string line, stream;
 
 	if (!source.is_open()) {
-		throw std::runtime_error("INCORRECT SHADER FILEPATH");
+		std::cout << "ERROR :: INCORRECT FILEPATH" << std::endl;
+		return "";
 	}
 
 	while (std::getline(source, line)) {
 		stream += line + "\n";
 	}
 
-	source.close();
-
-	const char* output = "#version 330 core";
-	return stream.c_str();
+	return stream;
 }
 
 
@@ -47,8 +45,9 @@ void CheckShader(unsigned int &ID) {
 VertexShader::VertexShader(const char* filePath) {
 	ID = glCreateShader(GL_VERTEX_SHADER);
 
-	const char* source = AccessShaderFile(filePath);
-	std::cout << source;
+	// Scuffed container
+	std::string output = AccessShaderFile(filePath);
+	const char* source = output.c_str();
 
 	glShaderSource(ID, 1, &source, GL_FALSE);
 	glCompileShader(ID);
@@ -61,11 +60,19 @@ VertexShader::~VertexShader() {
 }
 
 
-
 //* Fragment Shader *//
 
 FragmentShader::FragmentShader(const char* filePath) {
 	ID = glCreateShader(GL_FRAGMENT_SHADER);
+
+	// Scuffed container
+	std::string output = AccessShaderFile(filePath);
+	const char* source = output.c_str();
+
+	glShaderSource(ID, 1, &source, GL_FALSE);
+	glCompileShader(ID);
+
+	CheckShader(ID);
 }
 
 FragmentShader::~FragmentShader() {
@@ -80,4 +87,22 @@ ShaderProgram::ShaderProgram(const char* vertexFilePath, const char* fragmentFil
 	// Load up the Vertex and Fragment Shaders for the Shader Program
 	Vertex	  =	new VertexShader(vertexFilePath);
 	Fragment  =	new FragmentShader(fragmentFilePath);
+
+	ID = glCreateProgram();
+
+	glAttachShader(ID, Vertex->ID);
+	glAttachShader(ID, Fragment->ID);
+
+	glLinkProgram(ID);
+	
+	CheckShader(ID);
+}
+
+void ShaderProgram::Use() {
+	glUseProgram(ID);
+}
+
+ShaderProgram::~ShaderProgram() {
+	Vertex->~VertexShader();
+	Fragment->~FragmentShader();
 }

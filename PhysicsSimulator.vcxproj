@@ -137,6 +137,7 @@
     <ClCompile Include="src\Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Physics\PhysicsEngine.cpp" />
+    <ClCompile Include="src\Shaders\Buffers.cpp" />
     <ClCompile Include="src\Shaders\Shaders.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +153,7 @@
     <ClInclude Include="Libraries\include\KHR\khrplatform.h" />
     <ClInclude Include="src\Graphics\GraphicsEngine.h" />
     <ClInclude Include="src\Physics\PhysicsEngine.h" />
+    <ClInclude Include="src\Shaders\Buffers.h" />
     <ClInclude Include="src\Shaders\Shaders.h" />
   </ItemGroup>
   <ItemGroup>

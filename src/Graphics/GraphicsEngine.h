@@ -4,11 +4,12 @@
 
 
 struct GLFWwindow;
-
+class ShaderProgram;
 
 class GraphicsEngine {
 public:
 	GLFWwindow* window = nullptr;
+	ShaderProgram* shaders;
 
 	GraphicsEngine(int WIDTH, int HEIGHT, const char* name);
 	~GraphicsEngine();

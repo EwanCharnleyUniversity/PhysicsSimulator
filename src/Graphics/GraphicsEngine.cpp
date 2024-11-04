@@ -6,6 +6,7 @@
 
 #include "GraphicsEngine.h"
 #include "../Shaders/Shaders.h"
+#include "../Shaders/Buffers.h"
 
 
 // Hard coded vertices - normalised (center of screen is 0,0)
@@ -40,7 +41,9 @@ GraphicsEngine::GraphicsEngine(int WIDTH, int HEIGHT, const char* TITLE) {
 		return;
 	}
 
-	ShaderProgram Shaders("src/Shaders/vertex.vert", "src/Shaders/fragment.frag");
+	// Create Shaders
+	shaders = new ShaderProgram("src/Shaders/vertex.vert", "src/Shaders/fragment.frag");
+
 }
 
 // Performs one Frame Call for Rendering
@@ -49,6 +52,19 @@ void GraphicsEngine::Render() {
 
 	glClearColor(0.033f, 0.033f, 0.066f, 1.f);
 	glClear(GL_COLOR_BUFFER_BIT);
+
+	shaders->Use();
+
+	VAO vao;
+	vao.Bind();
+
+	VBO vbo;
+	vbo.Bind();
+
+	vbo.Buffer(vertices);
+	vao.VertexAttribute();
+
+	glDrawArrays(GL_TRIANGLES, 0, 3);
 
 	glfwSwapBuffers(window);
 }
