@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Shaders.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Shaders\\Shaders.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Buffers.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Shaders\\Buffers.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Buffers.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Shaders\\Buffers.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Graphics\\GraphicsEngine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Graphics\\GraphicsEngine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Shaders.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Shaders\\Shaders.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Graphics\\GraphicsEngine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Graphics\\GraphicsEngine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Buffers.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Shaders\\Buffers.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\fragment.frag||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Shaders\\fragment.frag||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Shaders.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Shaders\\Shaders.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Shaders.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E27D8DD-54A7-45F6-B1DC-55B4985ABAA9}|PhysicsSimulator.vcxproj|solutionrelative:src\\Shaders\\Shaders.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,47 +38,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\main.cpp",
-              "RelativeDocumentMoniker": "src\\main.cpp",
-              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\main.cpp",
-              "RelativeToolTip": "src\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-15T14:49:14.076Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Buffers.cpp",
-              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Buffers.cpp",
-              "RelativeDocumentMoniker": "src\\Shaders\\Buffers.cpp",
-              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Buffers.cpp",
-              "RelativeToolTip": "src\\Shaders\\Buffers.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-04T11:40:29.233Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Shaders.h",
-              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Shaders.h",
-              "RelativeDocumentMoniker": "src\\Shaders\\Shaders.h",
-              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Shaders.h",
-              "RelativeToolTip": "src\\Shaders\\Shaders.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAD4vyUAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-04T11:56:30.904Z",
+              "Title": "GraphicsEngine.cpp",
+              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Graphics\\GraphicsEngine.cpp",
+              "RelativeDocumentMoniker": "src\\Graphics\\GraphicsEngine.cpp",
+              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Graphics\\GraphicsEngine.cpp",
+              "RelativeToolTip": "src\\Graphics\\GraphicsEngine.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-30T14:10:22.518Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -85,33 +62,73 @@
               "RelativeDocumentMoniker": "src\\Graphics\\GraphicsEngine.h",
               "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Graphics\\GraphicsEngine.h",
               "RelativeToolTip": "src\\Graphics\\GraphicsEngine.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-04T11:56:16.889Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GraphicsEngine.cpp",
-              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Graphics\\GraphicsEngine.cpp",
-              "RelativeDocumentMoniker": "src\\Graphics\\GraphicsEngine.cpp",
-              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Graphics\\GraphicsEngine.cpp",
-              "RelativeToolTip": "src\\Graphics\\GraphicsEngine.cpp",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAADoAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-30T14:10:22.518Z",
+              "Title": "Buffers.h",
+              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Buffers.h",
+              "RelativeDocumentMoniker": "src\\Shaders\\Buffers.h",
+              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Buffers.h",
+              "RelativeToolTip": "src\\Shaders\\Buffers.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-04T14:46:35.905Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Buffers.cpp",
+              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Buffers.cpp",
+              "RelativeDocumentMoniker": "src\\Shaders\\Buffers.cpp",
+              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Buffers.cpp",
+              "RelativeToolTip": "src\\Shaders\\Buffers.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAADYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-04T14:46:41.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "fragment.frag",
+              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\fragment.frag",
+              "RelativeDocumentMoniker": "src\\Shaders\\fragment.frag",
+              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\fragment.frag",
+              "RelativeToolTip": "src\\Shaders\\fragment.frag",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-04T13:57:11.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Shaders.h",
+              "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Shaders.h",
+              "RelativeDocumentMoniker": "src\\Shaders\\Shaders.h",
+              "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Shaders.h",
+              "RelativeToolTip": "src\\Shaders\\Shaders.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-04T11:56:30.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Shaders.cpp",
               "DocumentMoniker": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Shaders.cpp",
               "RelativeDocumentMoniker": "src\\Shaders\\Shaders.cpp",
               "ToolTip": "C:\\Users\\A0096607\\Documents\\Projects\\PhysicsSimulator\\src\\Shaders\\Shaders.cpp",
               "RelativeToolTip": "src\\Shaders\\Shaders.cpp",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAIwGUAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAIwFEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-04T11:42:45.208Z",
               "EditorCaption": ""
