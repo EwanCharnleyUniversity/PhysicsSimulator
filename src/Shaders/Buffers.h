@@ -5,13 +5,15 @@
 // Vertex Array Object
 // Holds all data relating to vertices, such as their position, colour, texture coordinates, etc.
 // All Buffers and Element Arrays are handled by a parent VAO.
-class VAO {
+class Buffer {
 public:
-	unsigned int ID, VBO, EBO;
+	unsigned int VAO, VBO, EBO;
 
-	VAO();
+	Buffer();
 
-	void Bind();
+	void BindVertexArray();
+	void BindBuffer(float* vertex);
+
 	void Attribute(unsigned int layout, int size, int stride, int offset);
 };
 

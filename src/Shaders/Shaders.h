@@ -2,6 +2,9 @@
 #define SHADER_CLASS_HPP
 
 
+struct GLFWwindow;
+
+
 // Deals with Vertex Shaders (.vert files).
 // Vertex Shaders deal with vertex graphics such as whole fill rasterization. It is vertex per vertex.
 class VertexShader {
@@ -36,6 +39,7 @@ public:
 	~ShaderProgram();
 
 	void Use();
+	void cameraPerspective(GLFWwindow& window, const float &time);
 };
 
 

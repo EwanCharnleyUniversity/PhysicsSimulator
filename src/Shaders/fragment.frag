@@ -3,6 +3,7 @@
 out vec4 FragColor;
 in vec3 ourCol;
 
+
 void main()
 {
 	FragColor = vec4(ourCol, 1.0f);

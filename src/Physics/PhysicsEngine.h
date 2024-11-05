@@ -13,8 +13,6 @@ public:
 	PhysicsEngine(GraphicsEngine& graphicsPointer);
 	void Simulate();
 
-private:
-
 };
 
 
