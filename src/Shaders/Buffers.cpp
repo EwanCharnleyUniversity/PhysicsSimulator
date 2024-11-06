@@ -63,16 +63,13 @@ void Buffer::BindVertexArray() {
 }
 
 
-/* 
-# Layout	- ID from which a shader can parse in and use.
-|[ example: ID 0 is texture coordinates, Fragment Shader gets it through layout 0 ]|
-# Size	- The amount of data per Attribute.
-|[ example: assigning three size could represent three floats which represent the attribute for coordinates. ]|
-# Stride	- After reading Size, the rest of the vertex is skipped for the next in the array (if applicable).
-|[ example: Vertex contains nine values but we only need three, after reading three we skip the other six for the next vertex. ]|
-# Offset	- How much of the data is skipped from the beginning of the Vertex.
-|[ example: Using the Vertex example from Stide, we need to parse two values from the start of it's fifth value. This means we have an Offset of five ]|
-*/
+/**
+* @brief Species how OpenGL will interpret the Vertex Buffer data whenever a draw call is made.
+* @param Layout - ID from which a shader can parse in and use.
+* @param Size	- The amount of data per Attribute.
+* @param Stride	- After reading Size, the rest of the vertex is skipped for the next in the array (if applicable).
+* @param Offset	- How much of the data is skipped from the beginning of the Vertex.
+**/
 void Buffer::Attribute(unsigned int layout, int size, int stride, int offset) {
 	glVertexAttribPointer(layout, size, GL_FLOAT, GL_FALSE, stride * sizeof(float), (void*)(offset * sizeof(float)));
 	glEnableVertexAttribArray(layout);

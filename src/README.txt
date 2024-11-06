@@ -6,7 +6,7 @@ To the Reviewers
 
 	- Guidance on what to prioritise for the project is also appreciated.
 
-	- This all includes the README, especially the TODO section down below. If the plans appear to be too much or priorities are skewed, please let me know.
+	- This all includes the README, especially the TODO section down below. If the plans appear to be too much or the priorities are skewed, please let me know.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ Graphics
 	- Get Inputs to work for the window, and use that to parse in basic camera movement.
 		- Later change would be to make the camera able to change its worldspace rotation depending on the mouse.
 
-	- Abstract the Buffer, main goal is to make it able to parse in outside data such as models or hard-coded vertex arrays to load stuff, rather than use a hard-coded cube for testing.
+	- Abstract the Buffer, main goal is to make it able to parse in outside data such as models or hard-coded vertex arrays/vector to load stuff, rather than use a hard-coded cube for testing.
 		- Might split it up if it is necessary.
 
 	- Move all code relating to OpenGL shader and Buffer loading into the Graphics Folder.

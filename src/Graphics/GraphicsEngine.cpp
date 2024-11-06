@@ -45,7 +45,7 @@ GraphicsEngine::GraphicsEngine(int WIDTH, int HEIGHT, const char* TITLE) {
 	}
 
 	// Create Shaders
-	shaders = new ShaderProgram("src/Shaders/vertex.vert", "src/Shaders/fragment.frag");
+	shaders = new ShaderProgram("resources/vertex.vert", "resources/fragment.frag");
 
 	glEnable(GL_DEPTH_TEST);
 }
@@ -66,7 +66,12 @@ void GraphicsEngine::Render(const float &time) {
 
 	buffer.BindVertexArray();
 
-	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+	// Find buffer size for drawing
+	int nBufferSize = 0;
+	glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &nBufferSize);
+	int size = (nBufferSize / sizeof(int));
+
+	glDrawElements(GL_TRIANGLES, size, GL_UNSIGNED_INT, 0);
 
 	glfwSwapBuffers(window);
 }
