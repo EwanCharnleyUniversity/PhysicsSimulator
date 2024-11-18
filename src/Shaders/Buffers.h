@@ -11,7 +11,7 @@ public:
 	Buffer();
 
 	void BindVertexArray();
-	void BindBuffer(float* vertex);
+	void BindBuffer();
 
 	void Attribute(unsigned int layout, int size, int stride, int offset);
 };

@@ -1,4 +1,6 @@
 
+#include <iostream>
+
 #include "PhysicsEngine.h"
 #include "../Graphics/GraphicsEngine.h"
 
@@ -17,7 +19,7 @@ void PhysicsEngine::Simulate() {
 	while (!glfwWindowShouldClose(Graphics.window)) {
 		clock += 0.01f;
 
+		test.Simulate();
 		Graphics.Render(clock);
-
 	}
 }

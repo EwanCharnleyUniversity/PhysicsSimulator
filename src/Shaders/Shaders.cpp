@@ -103,8 +103,6 @@ ShaderProgram::ShaderProgram(const char* vertexFilePath, const char* fragmentFil
 	glAttachShader(ID, Fragment->ID);
 
 	glLinkProgram(ID);
-	
-	CheckShader(ID);
 }
 
 
@@ -128,6 +126,7 @@ void ShaderProgram::cameraPerspective(GLFWwindow& window, const float &time) {
 	unsigned int modelproj = glGetUniformLocation(ID, "model");
 	glUniformMatrix4fv(modelproj, 1, GL_FALSE, glm::value_ptr(model));
 	
+
 	// Viewing and Projection matrices
 	glm::mat4 view = glm::mat4(1.0f);
 	glm::mat4 proj = glm::mat4(1.0f);

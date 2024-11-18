@@ -37,14 +37,14 @@ Buffer::Buffer() {
 
 	BindVertexArray();
 
-	BindBuffer(vertices);
+	BindBuffer();
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 }
 
 
-void Buffer::BindBuffer(float* vertex) {
+void Buffer::BindBuffer() {
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
