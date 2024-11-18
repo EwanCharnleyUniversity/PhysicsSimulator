@@ -1,5 +1,3 @@
-﻿  GraphicsEngine.cpp
-  Particle.cpp
-  Buffers.cpp
-  Generating Code...
+﻿  main.cpp
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(139,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   PhysicsSimulator.vcxproj -> C:\Users\A0096607\Documents\Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe

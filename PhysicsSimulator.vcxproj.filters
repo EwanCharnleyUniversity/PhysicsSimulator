@@ -15,72 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\glad.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\GraphicsEngine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Physics\PhysicsEngine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Shaders\Shaders.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Shaders\Buffers.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Physics\Particle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GlobalStructs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="src\!Legacy_SFML\README.txt" />
-    <Text Include="src\README.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="Libraries\lib\glfw3.lib" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Libraries\include\GLFW\glfw3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Libraries\include\GLFW\glfw3native.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Libraries\include\glad\glad.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Libraries\include\KHR\khrplatform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\GraphicsEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Physics\PhysicsEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Shaders\Shaders.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Shaders\Buffers.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Physics\Particle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GlobalStructs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\vertex.vert" />
-    <None Include="resources\fragment.frag" />
   </ItemGroup>
 </Project>

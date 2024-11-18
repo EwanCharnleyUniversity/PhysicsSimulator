@@ -104,13 +104,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>Libraries\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>Libraries\lib;C:\Users\A0096607\Documents\Projects\PhysicsSimulator\Libraries\bin</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -133,37 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\glad.c" />
-    <ClCompile Include="src\GlobalStructs.cpp" />
-    <ClCompile Include="src\Graphics\GraphicsEngine.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Physics\Particle.cpp" />
-    <ClCompile Include="src\Physics\PhysicsEngine.cpp" />
-    <ClCompile Include="src\Shaders\Buffers.cpp" />
-    <ClCompile Include="src\Shaders\Shaders.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="src\!Legacy_SFML\README.txt" />
-    <Text Include="src\README.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="Libraries\lib\glfw3.lib" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Libraries\include\glad\glad.h" />
-    <ClInclude Include="Libraries\include\GLFW\glfw3.h" />
-    <ClInclude Include="Libraries\include\GLFW\glfw3native.h" />
-    <ClInclude Include="Libraries\include\KHR\khrplatform.h" />
-    <ClInclude Include="src\GlobalStructs.h" />
-    <ClInclude Include="src\Graphics\GraphicsEngine.h" />
-    <ClInclude Include="src\Physics\Particle.h" />
-    <ClInclude Include="src\Physics\PhysicsEngine.h" />
-    <ClInclude Include="src\Shaders\Buffers.h" />
-    <ClInclude Include="src\Shaders\Shaders.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\fragment.frag" />
-    <None Include="resources\vertex.vert" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
