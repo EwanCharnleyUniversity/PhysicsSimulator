@@ -3,9 +3,9 @@
 #include <iostream>
 #include <vector>
 
+
 // Constants
 int PARTICLE_AMOUNT = 2;
-
 
 
 static float Square(float input) {
@@ -21,7 +21,15 @@ struct Vector3D {
 		return sqrt(Square(X) + Square(Y) + Square(Z));
 	}
 
+	float Dot(Vector3D input) {
+		return (this->X * input.X) + (this->Y * input.Y) + (this->Z * input.Z);
+	}
 
+	float Angle(Vector3D input) {
+		return acosf(
+			Dot(input) / (Magnitude() * input.Magnitude())
+		);
+	}
 
 	void Print() {
 		std::cout << "X: " << this->X << " ";
@@ -42,6 +50,7 @@ struct Vector3D {
 	inline Vector3D operator +=(const Vector3D& lhs) {
 		return operator+(lhs);
 	}
+
 
 	// Subtraction
 	inline Vector3D operator -(const Vector3D& lhs) {
@@ -109,6 +118,7 @@ public:
 
 
 	void Simulate(std::vector<Particle>& targets) {
+		
 		for (auto target : targets) {
 
 			// Check if the target is itself
@@ -117,13 +127,29 @@ public:
 			}
 			
 			// Distance Magnitude between target and parent
-			std::cout << this->ID << " -> " << target.ID << std::endl;
-			Vector3D distance = target.position - this->position;
-			std::cout << distance.Magnitude() << std::endl;
+			Vector3D distance = target.position; distance -= this->position;
+			Vector3D velocityVector = velocity; velocityVector -= position;
+			float angle = velocityVector.Angle(distance);
+			
 
+			// Print everything out
+			std::cout << this->ID << " -> " << target.ID << std::endl;
+			std::cout << "Position || "; this->position.Print();
+			std::cout << "Velocity || "; this->velocity.Print();
+			std::cout << "Distance to Target || "; distance.Print();
+			std::cout << "Angle: " << sin(angle) << std::endl;
+			std::cout << sin(angle) * distance.Magnitude() << std::endl;
+
+
+			// Check angle to the combined radius.
+			if (sin(angle) * distance.Magnitude() <= this->RADIUS + target.RADIUS) {
+				std::cout << "collision is possible" << std::endl;
+			}
 
 
 		}
+
+		//position += velocity;
 	}
 
 private:
@@ -148,7 +174,7 @@ int main(void) {
 
 	while (1) {
 		// Loop through every particle for simulation
-		for (auto i : particles) {
+		for (auto& i : particles) {
 			i.Simulate(particles);
 		}
 	}
