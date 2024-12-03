@@ -1,9 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <iomanip>
 
 #define PI 3.14159265
 
 
-#include <iostream>
-#include <vector>
+#ifdef NDEBUG
+static bool debug = false;
+#else
+static bool debug = true;
+static int TERMINAL_LENGTH = 16;
+
+/**
+ * @brief A Logger structure that allows tidier terminal readings.
+ * @tparam std::string ID which denotes the name to the loggers instantiated function, class, etc. Useful for marking the code focus in runtime.
+ * @returns std::ostream* pointer to std::cout, automatically prints out the stored stream.
+ */
+class Logger {
+private:
+	std::ostream* stream = &std::cout;
+	std::string ID = "NaN";
+
+public:
+	Logger(std::string id) : ID(id) {
+		*stream << ID << "\t ||";
+
+		if (TERMINAL_LENGTH - ID.size() > 0) {
+			stream->width(TERMINAL_LENGTH - ID.size());
+		}
+	}
+
+	template <typename T>
+	Logger& operator <<(const T& msg) {
+		*stream << msg;
+		return *this;
+	}
+};
+
+#endif
 
 
 // Constants
@@ -18,35 +52,57 @@ static float Square(float input) {
 	return input * input;
 }
 
+static float Degrees(float input) {
+	return acos(input) * 180 / PI;
+}
 
+
+/**
+* @brief adasd
+* @param floats: X, Y, Z for 3D coordination
+*/
 struct Vector3D {
 	float X, Y, Z;
 
-
 	// Magnitude is the square root of x^2 + y^2 + z^2 
 	float Magnitude() {
+		float result = Square(X) + Square(Y) + Square(Z);
+
+		if (debug) {
+			Logger logger("Magnitude");
+			logger << "(" << this->X << " * " << this->X << ") + (" << this->Y << " * " << this->Y << ") + (" << this->Z << " * " << this->Z << ") = " << Square(X) + Square(Y) + Square(Z);
+			logger << "sqrt(" << result << ") = " << sqrt(result);
+		}
+		
 		return sqrt(Square(X) + Square(Y) + Square(Z));
 	}
 
-	// (x1y1) + (x2y2) + (x3y3)
-	float CrossProduct(Vector3D input) {
-		return (this->X * input.X) + (this->Y * input.Y) + (this->Z * input.Z);
-	}
-
-	// Dot Product is the inverse cosine of the dot product of two vectors divided by their multiplied magnitudes.
+	// Dot Product is x1x2 + y1y2 + z1z2
 	float DotProduct(Vector3D input) {
-		return CrossProduct(input) / (Magnitude() * input.Magnitude());
+		float result = this->X * input.X + this->Y * input.Y + this->Z * input.Z;
+		std::cout << "Dot Product|| " << "(" << this->X << " * " << input.X << ") + (" << this->Y << " * " << input.Y << ") + (" << this->Z << " * " << input.Z << ") = " << result << std::endl;
+		return result;
 	}
 
-	float DotProductToAngle(Vector3D input) {
-		return acosf(CrossProduct(input) / (Magnitude() * input.Magnitude())) * 180 / PI;
+	// Angle is cosine of the dot product divided by the magnitude.
+	// Returned as cosine result between -1 and 1.
+	float Angle(Vector3D input) {
+		float dot = DotProduct(input);
+		float magnitude = Magnitude() * input.Magnitude();
+		float result = dot / magnitude;
+		std::cout << "Angle||" << dot << " / " << magnitude << " = " << result << std::endl;
+
+		std::cout << "Degrees||" << Degrees(result) << "" << std::endl;
+		return result;
 	}
 
 
 	void Print() {
-		std::cout << "X: " << this->X << " ";
-		std::cout << "Y: " << this->Y << " ";
-		std::cout << "Z: " << this->Z << std::endl;
+		std::cout << "Vector|| X: " << this->X << "	Y: " << this->Y << "	Z: " << this->Z << std::endl;
+	}
+
+	void Print(std::string name) {
+		std::cout << name << "|| X: " << this->X << "	Y: " << this->Y << "	Z: " << this->Z << std::endl;
 	}
 
 
@@ -177,11 +233,17 @@ public:
 		Vector3D surfacePosition{ 0,0,0 };
 		Vector3D surfaceNormal{ 0,1,0 };
 
-		float angle = surfaceNormal.DotProduct(velocity * -1);
+		float headingAngle = surfaceNormal.DotProduct(velocity * -1);
 
-		std::cout << "Angle to plane: " << angle << std::endl;
-		std::cout << "In Degrees: " << angle * 180 / PI << std::endl;
+		Vector3D positionToPlane = surfacePosition - position;
+		float planeAngle = positionToPlane.DotProduct(surfaceNormal);
+
+		std::cout << "Angle to plane: " << headingAngle << std::endl;
+		std::cout << "In Degrees: " << headingAngle * 180 / PI << std::endl;
 		std::cout << std::endl;
+
+
+		float d = cos(planeAngle) * positionToPlane.Magnitude();
 	}
 
 
@@ -298,25 +360,36 @@ int main(void) {
 	// Raw maths check both on paper (or doc) and in program.
 	Vector3D particlePosition{ 13.131, 14.72, -18.32 };
 	Vector3D particleVelocity{ 3.3, -4, 2 };
+	float radius = 2.0f;
 
 	Vector3D planePoint{ 0, -2.5, 0 };
 	Vector3D planeNormal{ 0, 1, 0 };
-	
-	std::cout << "magnitude of Normal is: " << planeNormal.Magnitude() << std::endl;
-	std::cout << "magnitude of Velocity is: " << particleVelocity.Magnitude() << std::endl;
-	std::cout << planeNormal.Magnitude() << " * " <<  particleVelocity.Magnitude() << " = " << planeNormal.Magnitude() * particleVelocity.Magnitude() << std::endl;
 
-	std::cout << "Cross Product of Normal and the inverse of Velocity: " << planeNormal.CrossProduct(particleVelocity * -1) << std::endl;
-	std::cout << "Dot Product between Normal and inverse of Velocity is: " << planeNormal.DotProduct(particleVelocity * -1) << std::endl;
-	std::cout << "Angle between Normal and inverse of Velocity is: " << planeNormal.DotProductToAngle(particleVelocity * -1) << std::endl;
+	planePoint.Print("Plane Point");
+	planeNormal.Print("Plane Normal");
+	particlePosition.Print("Particle Position");
+	particleVelocity.Print("Particle Velocity");
 
-	if (planeNormal.DotProductToAngle(particleVelocity * -1) >= 90.f) {
+	float angleVtoN = planeNormal.Angle(particleVelocity * -1);
+
+	if (angleVtoN >= 90.f) {
 		std::cout << "\nParticle will not collide.\n";
+		return 0;
 	}
 
-	std::cout << "\nParticle will collide!\n";
+	std::cout << "\nParticle will collide!" << std::endl;
 
+	Vector3D P = planePoint - particlePosition;
 
+	planeNormal.Print("Plane Normal");
+	P.Print("Plane to Particle");
+	float q = planeNormal.Angle(P);
+	float d = cos(q) * P.Magnitude();
+	std::cout << "D	|| " << d << std::endl;
+
+	float VcMag = (d - radius) / cos(angleVtoN);
+	Vector3D Vc = (particleVelocity * VcMag) / particleVelocity.Magnitude();
+	Vc.Print("Vc");
 
 	//ParticleToStaticParticle();
 

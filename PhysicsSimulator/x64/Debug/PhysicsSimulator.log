@@ -1,11 +1,11 @@
 ﻿  main.cpp
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(42,79): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(263,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(267,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(282,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(295,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(297,29): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(297,37): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(297,45): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(298,29): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(56,27): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(325,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(329,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(344,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(357,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(361,29): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(361,37): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(361,45): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\A0096607\Documents\Projects\PhysicsSimulator\main.cpp(362,29): warning C4305: 'initializing': truncation from 'double' to 'float'
   PhysicsSimulator.vcxproj -> C:\Users\A0096607\Documents\Projects\PhysicsSimulator\x64\Debug\PhysicsSimulator.exe
