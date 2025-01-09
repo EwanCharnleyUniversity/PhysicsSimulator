@@ -8,12 +8,12 @@
 #ifdef NDEBUG
 static bool debug = false;
 #else
-static bool debug = true;
+static bool debug = false;
 static int TERMINAL_LENGTH = 16;
 
 /**
  * @brief A Logger structure that allows tidier terminal readings.
- * @tparam std::string ID which denotes the name to the loggers instantiated function, class, etc. Useful for marking the code focus in runtime.
+ * @tparam std::string ID which denotes the name to the loggers instantiated function, class, etc. Useful for marking the codes focus in runtime.
  * @returns std::ostream* pointer to std::cout, automatically prints out the stored stream.
  */
 class Logger {
@@ -58,7 +58,7 @@ static float Degrees(float input) {
 
 
 /**
-* @brief adasd
+* @brief A vector denoted with there paramaters for worldspace coordinates or velocity.
 * @param floats: X, Y, Z for 3D coordination
 */
 struct Vector3D {
@@ -90,21 +90,16 @@ struct Vector3D {
 		float dot = DotProduct(input);
 		float magnitude = Magnitude() * input.Magnitude();
 		float result = dot / magnitude;
-		std::cout << "Angle||" << dot << " / " << magnitude << " = " << result << std::endl;
+		std::cout << "Angle || " << dot << " / " << magnitude << " = " << result << std::endl;
 
-		std::cout << "Degrees||" << Degrees(result) << "" << std::endl;
+		std::cout << "Degrees || " << Degrees(result) << "" << std::endl;
 		return result;
 	}
 
 
 	void Print() {
-		std::cout << "Vector|| X: " << this->X << "	Y: " << this->Y << "	Z: " << this->Z << std::endl;
+		std::cout << "X: " << this->X << "	Y : " << this->Y << "	Z : " << this->Z << std::endl;
 	}
-
-	void Print(std::string name) {
-		std::cout << name << "|| X: " << this->X << "	Y: " << this->Y << "	Z: " << this->Z << std::endl;
-	}
-
 
 	// Addition
 	inline Vector3D operator +(const Vector3D& lhs) const {
@@ -238,8 +233,8 @@ public:
 		Vector3D positionToPlane = surfacePosition - position;
 		float planeAngle = positionToPlane.DotProduct(surfaceNormal);
 
-		std::cout << "Angle to plane: " << headingAngle << std::endl;
-		std::cout << "In Degrees: " << headingAngle * 180 / PI << std::endl;
+		std::cout << "Angle to plane || " << headingAngle << std::endl;
+		std::cout << "In Degrees || " << headingAngle * 180 / PI << std::endl;
 		std::cout << std::endl;
 
 
@@ -264,8 +259,8 @@ public:
 			// Print data on distance and angle.
 			std::cout << this->ID << " -> " << target.ID << std::endl;
 			std::cout << "Distance to Target || "; distance.Print();
-			std::cout << "Angle: " << sin(angle) << std::endl;
-			std::cout << "Closest Approach: " << sin(angle) * distance.Magnitude() << std::endl;
+			std::cout << "Angle || " << sin(angle) << std::endl;
+			std::cout << "Closest Approach || " << sin(angle) * distance.Magnitude() << std::endl;
 
 
 			// Check angle to the combined radius.
@@ -293,7 +288,7 @@ public:
 
 	void Simulate(std::vector<Particle>& targets) {
 
-		std::cout << "Particle: " << this->ID << std::endl;
+		std::cout << "Particle - " << this->ID << std::endl;
 		std::cout << "Position || "; this->position.Print();
 
 		if (STATIC) {
@@ -353,45 +348,46 @@ void ParticleToPlane() {
 
 
 
+
 int main(void) {
 	srand(time(NULL));
 
 
 	// Raw maths check both on paper (or doc) and in program.
-	Vector3D particlePosition{ 13.131, 14.72, -18.32 };
-	Vector3D particleVelocity{ 3.3, -4, 2 };
-	float radius = 2.0f;
+	//Vector3D particlePosition{ 13.131, 14.72, -18.32 };
+	//Vector3D particleVelocity{ 3.3, -4, 2 };
+	//float radius = 2.0f;
 
-	Vector3D planePoint{ 0, -2.5, 0 };
-	Vector3D planeNormal{ 0, 1, 0 };
+	//Vector3D planePoint{ 0, -2.5, 0 };
+	//Vector3D planeNormal{ 0, 1, 0 };
 
-	planePoint.Print("Plane Point");
-	planeNormal.Print("Plane Normal");
-	particlePosition.Print("Particle Position");
-	particleVelocity.Print("Particle Velocity");
+	//planePoint.Print("Plane Point");
+	//planeNormal.Print("Plane Normal");
+	//particlePosition.Print("Particle Position");
+	//particleVelocity.Print("Particle Velocity");
 
-	float angleVtoN = planeNormal.Angle(particleVelocity * -1);
+	//float angleVtoN = planeNormal.Angle(particleVelocity * -1);
 
-	if (angleVtoN >= 90.f) {
-		std::cout << "\nParticle will not collide.\n";
-		return 0;
-	}
+	//if (angleVtoN >= 90.f) {
+	//	std::cout << "\nParticle will not collide.\n";
+	//	return 0;
+	//}
 
-	std::cout << "\nParticle will collide!" << std::endl;
+	//std::cout << "\nParticle will collide!" << std::endl;
 
-	Vector3D P = planePoint - particlePosition;
+	//Vector3D P = planePoint - particlePosition;
 
-	planeNormal.Print("Plane Normal");
-	P.Print("Plane to Particle");
-	float q = planeNormal.Angle(P);
-	float d = cos(q) * P.Magnitude();
-	std::cout << "D	|| " << d << std::endl;
+	//planeNormal.Print("Plane Normal");
+	//P.Print("Plane to Particle");
+	//float q = planeNormal.Angle(P);
+	//float d = cos(q) * P.Magnitude();
+	//std::cout << "D	|| " << d << std::endl;
 
-	float VcMag = (d - radius) / cos(angleVtoN);
-	Vector3D Vc = (particleVelocity * VcMag) / particleVelocity.Magnitude();
-	Vc.Print("Vc");
+	//float VcMag = (d - radius) / cos(angleVtoN);
+	//Vector3D Vc = (particleVelocity * VcMag) / particleVelocity.Magnitude();
+	//Vc.Print("Vc");
 
-	//ParticleToStaticParticle();
+	ParticleToStaticParticle();
 
 	return 0;
 }
